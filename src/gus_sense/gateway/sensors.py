@@ -1,11 +1,14 @@
 """Sensores — interface base e adaptador wearable.
 
-Território: T-SENSOR (tarefa T4). v0 lê de fonte MOCKADA (JSON); API real depois.
+Território: T-SENSOR (tarefa T4). Implementação de referência.
+v0 lê de fonte MOCKADA (JSON); API real (Whoop/Oura/Apple) fica pra depois.
 """
 from __future__ import annotations
 
+import json
 from dataclasses import dataclass
 from datetime import datetime
+from pathlib import Path
 from typing import Iterator, Protocol
 
 
@@ -25,14 +28,19 @@ class Sensor(Protocol):
 class WearableSensor:
     """Adaptador de wearable. v0: lê leituras de um arquivo JSON mockado.
 
-    Plugar API real (Whoop/Oura/Apple) é fora de escopo do Bloco 1.
+    Formato esperado: lista de objetos {metric, value, ts (ISO 8601), unit}.
     """
     name = "wearable"
 
     def __init__(self, fonte: str) -> None:
-        # TODO(T4): fonte = caminho do JSON mockado (ver tests/fixtures).
         self.fonte = fonte
 
     def stream(self) -> Iterator[Reading]:
-        # TODO(T4): ler a fonte e emitir Reading válidos, ordenados por ts.
-        raise NotImplementedError("T4")
+        dados = json.loads(Path(self.fonte).read_text(encoding="utf-8"))
+        for item in sorted(dados, key=lambda d: d["ts"]):
+            yield Reading(
+                metric=str(item["metric"]),
+                value=float(item["value"]),
+                ts=datetime.fromisoformat(item["ts"]),
+                unit=str(item.get("unit", "")),
+            )
