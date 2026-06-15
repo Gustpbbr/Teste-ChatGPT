@@ -1,0 +1,3 @@
+# Runtime — manter mínimo. Adicionar conforme as tarefas exigirem.
+# httpx        # cliente HTTP do HubClient (T2)
+# qdrant-client # se for falar direto com Qdrant em vez da API do Gus
