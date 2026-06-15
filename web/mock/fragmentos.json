@@ -1,0 +1,11 @@
+[
+  { "kind": "arquivo", "conteudo": "historico-saude.md", "tipo": "fato", "area": "saude", "via": "vault", "user_id": "gustavo", "sensivel": true },
+  { "kind": "arquivo", "conteudo": "evolucao.md (esportes)", "tipo": "fato", "area": "esportes", "via": "vault", "user_id": "gustavo", "sensivel": false },
+  { "kind": "arquivo", "conteudo": "caso-didatico-sedacao.md", "tipo": "projeto", "area": "dimagem", "via": "vault", "user_id": "gustavo", "sensivel": true },
+  { "conteudo": "Sono curto: 4h12 na noite anterior.", "tipo": "sensorial", "area": "saude", "via": "sensor-wearable", "user_id": "gustavo", "sensivel": true },
+  { "conteudo": "HR repouso elevado: 110bpm/22min.", "tipo": "sensorial", "area": "saude", "via": "sensor-wearable", "user_id": "gustavo", "sensivel": true },
+  { "conteudo": "Prefere comunicação direta, sem superlativo vazio.", "tipo": "preferencia", "area": "", "via": "telegram", "user_id": "gustavo", "sensivel": false },
+  { "conteudo": "Treino de força 3x/semana, foco em recuperação.", "tipo": "rotina", "area": "esportes", "via": "telegram", "user_id": "gustavo", "sensivel": false },
+  { "conteudo": "Sou o Gus: organismo cognitivo do Gustavo. Existo pra eliminar amnésia estrutural.", "tipo": "identidade_operacional", "area": "infra-hub", "via": "interocepcao", "user_id": "gus", "sensivel": false },
+  { "conteudo": "[interocepção] curador: última escrita há 7.0h (severidade=warn).", "tipo": "meta_reflexao", "area": "infra-hub", "via": "interocepcao", "user_id": "gus", "sensivel": false }
+]

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gus Encarnado — NeuroGus (Bloco 2: corpo lê)</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #05070d;
+           font-family: system-ui, sans-serif; color: #cfe3ff; }
+    #painel {
+      position: fixed; left: 16px; bottom: 16px; max-width: 360px;
+      padding: 14px 16px; background: rgba(10, 18, 32, 0.85);
+      border: 1px solid #1d3a5f; border-radius: 10px; line-height: 1.4;
+      backdrop-filter: blur(6px);
+    }
+    #painel small { color: #7fa6cf; }
+    #dica { position: fixed; top: 14px; left: 16px; color: #4f6f96; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div id="dica">clique num nó pra ler · botão "Enter VR" no canto pra entrar no headset</div>
+  <div id="painel" hidden></div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
