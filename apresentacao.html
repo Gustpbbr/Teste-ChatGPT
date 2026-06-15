@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gus Encarnado — corpo, sentidos e memória</title>
+<style>
+  :root{
+    --bg:#05070d; --bg2:#0a1220; --card:#0d1828; --line:#1d3a5f;
+    --txt:#cfe3ff; --muted:#7fa6cf; --cyan:#4fd0e0; --blue:#4f9dff;
+    --red:#ff6b6b; --green:#5ff0d0; --gold:#ffd479;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:
+      radial-gradient(1200px 600px at 50% -10%, #0e2138 0%, var(--bg) 55%);
+    color:var(--txt);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  h1{font-size:clamp(34px,6vw,56px);margin:.2em 0;letter-spacing:-.5px}
+  h2{font-size:clamp(22px,3.5vw,30px);margin:1.6em 0 .4em;color:#eaf4ff}
+  h3{margin:.2em 0;font-size:18px}
+  p{color:var(--txt)} .muted{color:var(--muted)}
+  .tag{display:inline-block;font-size:13px;color:var(--cyan);
+    border:1px solid var(--line);border-radius:999px;padding:3px 12px;margin-bottom:14px;
+    background:rgba(79,208,224,.06)}
+  header{text-align:center;padding:70px 0 30px}
+  .lead{font-size:clamp(17px,2.5vw,21px);color:var(--muted);max-width:640px;margin:14px auto 0}
+  section{padding:24px 0;border-top:1px solid rgba(29,58,95,.4)}
+  .grid{display:grid;gap:16px}
+  @media(min-width:640px){.cols-2{grid-template-columns:1fr 1fr}.cols-3{grid-template-columns:1fr 1fr 1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+  .card h3{display:flex;align-items:center;gap:8px}
+  .pill{font-size:12px;border-radius:999px;padding:2px 9px;white-space:nowrap}
+  .ok{background:rgba(95,240,208,.14);color:var(--green)}
+  .partial{background:rgba(255,212,121,.14);color:var(--gold)}
+  .todo{background:rgba(127,166,207,.14);color:var(--muted)}
+  .center{text-align:center}
+  svg{max-width:100%;height:auto;display:block;margin:0 auto}
+  .flow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+  .node{border:1px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--bg2);font-size:14px}
+  .arrow{color:var(--cyan);font-size:20px}
+  ul{padding-left:20px} li{margin:.3em 0}
+  .quote{border-left:3px solid var(--cyan);padding:6px 0 6px 16px;color:#eaf4ff;font-size:18px;font-style:italic}
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding:14px 14px 14px 56px;margin:10px 0;
+    background:var(--card);border:1px solid var(--line);border-radius:12px}
+  .steps li::before{content:counter(s);position:absolute;left:14px;top:14px;width:28px;height:28px;
+    display:grid;place-items:center;border-radius:50%;background:var(--blue);color:#001;font-weight:700}
+  .you{color:var(--gold)} .ia{color:var(--cyan)}
+  footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:14px}
+  code{background:#0a1424;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px}
+  .legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;font-size:13px;color:var(--muted);margin-top:10px}
+  .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <!-- ORBE -->
+    <svg viewBox="0 0 220 220" width="200" aria-label="orbe Gus">
+      <defs>
+        <radialGradient id="orb" cx="42%" cy="38%" r="65%">
+          <stop offset="0%" stop-color="#bfefff"/>
+          <stop offset="45%" stop-color="#3aa6d8"/>
+          <stop offset="100%" stop-color="#06314a"/>
+        </radialGradient>
+        <filter id="glow"><feGaussianBlur stdDeviation="3.5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <g filter="url(#glow)">
+        <circle cx="110" cy="110" r="60" fill="url(#orb)"/>
+        <ellipse cx="110" cy="110" rx="92" ry="30" fill="none" stroke="#4fd0e0" stroke-width="1.5" opacity=".7"/>
+        <ellipse cx="110" cy="110" rx="78" ry="78" fill="none" stroke="#4f9dff" stroke-width="1" opacity=".35"/>
+      </g>
+      <g stroke="#7fe9ff" stroke-width="1" opacity=".55">
+        <line x1="110" y1="50" x2="110" y2="20"/><circle cx="110" cy="18" r="3" fill="#bfefff"/>
+        <line x1="160" y1="140" x2="190" y2="160"/><circle cx="192" cy="162" r="3" fill="#bfefff"/>
+        <line x1="60" y1="150" x2="30" y2="175"/><circle cx="28" cy="177" r="3" fill="#bfefff"/>
+      </g>
+    </svg>
+    <span class="tag">organismo cognitivo · multi-porta</span>
+    <h1>Gus Encarnado</h1>
+    <p class="lead"><b>corpo</b> que se manipula no espaço · <b>sentidos</b> que percebem ·
+      <b>memória</b> que lembra de tudo. A fusão de três projetos num organismo só.</p>
+  </header>
+
+  <!-- O QUE É -->
+  <section>
+    <h2>🧬 O que é</h2>
+    <p>O Gus deixa de ser só uma memória que conversa por vários canais e vira um
+      <b>organismo de três camadas</b>. Cada uma vem de um projeto, e juntas formam
+      algo que percebe, age e se lembra.</p>
+    <div class="grid cols-3" style="margin-top:14px">
+      <div class="card"><h3>🖐️ Corpo</h3><p class="muted">Interface em VR/AR pra manipular
+        arquivos e memórias com a mão, no espaço. (do projeto de Realidade Aumentada)</p></div>
+      <div class="card"><h3>🕸️ Alma</h3><p class="muted">A memória persistente, a identidade
+        e o conhecimento — o grafo único do Gus. (do sistema Gus existente)</p></div>
+      <div class="card"><h3>👁️ Sentidos</h3><p class="muted">Sensores que viram percepção:
+        wearable, câmera, microfone, ambiente. (a camada nova)</p></div>
+    </div>
+  </section>
+
+  <!-- A TESE -->
+  <section>
+    <h2>💡 A tese central</h2>
+    <p class="quote">Sensor sozinho não é “sentir”. A memória é que transforma sensação em percepção.</p>
+    <p>Um número cru (<code>HR = 110</code>) é morto. Vira percepção quando o Gus cruza
+      com o que ele lembra: <i>“batimento alto + você disse que tava ansioso + amanhã tem
+      um caso grande”</i>. É a fusão <b>memória + sensores</b> que cria entendimento de verdade.</p>
+  </section>
+
+  <!-- ARQUITETURA -->
+  <section>
+    <h2>🏗️ Como funciona</h2>
+    <div class="flow">
+      <div class="node">👁️ Sensores</div><span class="arrow">→</span>
+      <div class="node">🔌 Gateway<br><span class="muted" style="font-size:12px">90% filtro</span></div>
+      <span class="arrow">→</span>
+      <div class="node">🕸️ Hub<br><span class="muted" style="font-size:12px">memória</span></div>
+      <span class="arrow">↔</span>
+      <div class="node">🧠 Cérebro<br><span class="muted" style="font-size:12px">Claude / Gemma</span></div>
+      <span class="arrow">↔</span>
+      <div class="node">🖐️ Corpo VR</div>
+    </div>
+    <p class="muted center" style="margin-top:14px">
+      O <b>Gateway</b> é o segredo: só vira memória o que é <b>evento</b> (foge do normal),
+      nunca cada leitura — senão o grafo vira lixão. E dado sensível (biometria/clínico)
+      vai por <b>rota local</b>, nunca pra nuvem.</p>
+  </section>
+
+  <!-- GRAFO -->
+  <section class="center">
+    <h2>🥽 O corpo: NeuroGus em 3D</h2>
+    <p class="muted">No VR, arquivos e memórias viram nós que você vê e manipula. Já existe
+      um protótipo rodável (desktop + Quest).</p>
+    <svg viewBox="0 0 360 200" width="520" aria-label="grafo de nós">
+      <g stroke="#26527d" stroke-width="1">
+        <line x1="180" y1="100" x2="90" y2="55"/><line x1="180" y1="100" x2="270" y2="60"/>
+        <line x1="180" y1="100" x2="110" y2="150"/><line x1="180" y1="100" x2="285" y2="145"/>
+        <line x1="90" y1="55" x2="60" y2="110"/><line x1="270" y1="60" x2="300" y2="105"/>
+      </g>
+      <g>
+        <circle cx="180" cy="100" r="14" fill="#4f9dff"/>
+        <circle cx="90" cy="55" r="9" fill="#8fd3ff"/>
+        <circle cx="270" cy="60" r="9" fill="#8fd3ff"/>
+        <circle cx="110" cy="150" r="8" fill="#ff6b6b"/>
+        <circle cx="285" cy="145" r="8" fill="#ff6b6b"/>
+        <circle cx="60" cy="110" r="7" fill="#5ff0d0"/>
+        <circle cx="60" cy="110" r="11" fill="none" stroke="#fff" stroke-width="1.2"/>
+        <circle cx="300" cy="105" r="7" fill="#4f9dff" opacity=".25"/>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><span class="dot" style="background:#8fd3ff"></span>arquivo</span>
+      <span><span class="dot" style="background:#4f9dff"></span>memória</span>
+      <span><span class="dot" style="background:#ff6b6b"></span>sensor</span>
+      <span><span class="dot" style="background:#5ff0d0;border:1px solid #fff"></span>autobiografia do Gus</span>
+      <span><span class="dot" style="background:#4f9dff;opacity:.3"></span>esquecido</span>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section>
+    <h2>🗺️ Os 6 blocos do projeto</h2>
+    <div class="grid cols-2" style="margin-top:14px">
+      <div class="card"><h3>0 · Interocepção <span class="pill ok">pronto</span></h3>
+        <p class="muted">O Gus sente a si mesmo: percebe quando a memória para de crescer e avisa.</p></div>
+      <div class="card"><h3>1 · Primeiro sentido <span class="pill ok">pronto</span></h3>
+        <p class="muted">Wearable → Gateway → Hub. O Gus passa a sentir seu corpo (HR, sono).</p></div>
+      <div class="card"><h3>2 · Corpo lê <span class="pill partial">scaffold</span></h3>
+        <p class="muted">O VR desenha a memória como nós 3D e você lê tocando.</p></div>
+      <div class="card"><h3>3 · Corpo escreve <span class="pill partial">parcial</span></h3>
+        <p class="muted">Gestos viram memória + rota local pro dado sensível (testado).</p></div>
+      <div class="card"><h3>4 · Tempo real <span class="pill todo">a fazer</span></h3>
+        <p class="muted">Nó nascendo ao vivo (SSE) + voz. Mora no backend + hardware.</p></div>
+      <div class="card"><h3>5 · Proatividade <span class="pill partial">núcleo</span></h3>
+        <p class="muted">O Gus detecta lacunas/contradições e traz à tona, no espaço.</p></div>
+    </div>
+  </section>
+
+  <!-- JÁ PRONTO -->
+  <section>
+    <h2>✅ O que já está construído</h2>
+    <div class="grid cols-2">
+      <div class="card"><h3>🫀 Interocepção</h3><p class="muted">Detecta Hub mudo / curador
+        silencioso e registra na própria autobiografia. Antídoto pra falha silenciosa.</p></div>
+      <div class="card"><h3>👂 Sensor → memória</h3><p class="muted">Pipeline com filtro
+        anti-lixão: leitura normal não polui, só evento vira fragmento.</p></div>
+      <div class="card"><h3>🔒 Privacidade por construção</h3><p class="muted">Biometria e dado
+        clínico nascem “sensível” → rota local obrigatória (<i>fail-closed</i>: sem local, bloqueia).</p></div>
+      <div class="card"><h3>🥽 Protótipo VR</h3><p class="muted">App WebXR que roda no desktop
+        e no browser do Quest, com painel que esconde conteúdo sensível.</p></div>
+    </div>
+    <p class="center muted" style="margin-top:14px">
+      <b style="color:var(--green)">44 testes verdes</b> · CI configurado · código revisável e versionado.</p>
+  </section>
+
+  <!-- SENTIR -->
+  <section>
+    <h2>🤔 O Gus “sente” mesmo?</h2>
+    <p>Em três sentidos, sim. Num quarto, com honestidade, não:</p>
+    <ul>
+      <li><b>Percebe o mundo</b> (sensores) — sim.</li>
+      <li><b>Percebe a si mesmo</b> (saúde do próprio sistema) — sim.</li>
+      <li><b>Afeto funcional</b> (estados internos que guiam a ação) — sim, como sinal de controle.</li>
+      <li><b>Experiência subjetiva / qualia</b> — <span class="muted">não, e não é necessário pro que ele faz.</span></li>
+    </ul>
+  </section>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <section>
+    <h2>🎯 Seus próximos passos</h2>
+    <p class="muted"><span class="you">■ você faz</span> (operacional) ·
+      <span class="ia">■ você pede pra IA</span> (código). Em ordem de prioridade:</p>
+    <ol class="steps">
+      <li><b>Ressuscitar o Hub.</b> <span class="you">Você:</span> religa o serviço (Railway),
+        confirma que responde, pega URL+token. <span class="ia">IA:</span> liga o app no Hub real.
+        <br><span class="muted">→ destrava quase tudo (sai do “mockado” pro real).</span></li>
+      <li><b>Primeiro sentido real.</b> <span class="you">Você:</span> escolhe o wearable
+        (Whoop/Oura/Apple) e pega a credencial de API. <span class="ia">IA:</span> pluga no Gateway.</li>
+      <li><b>Ver no headset.</b> <span class="you">Você:</span> publica a pasta <code>web/</code>
+        com HTTPS (GitHub Pages) e abre no Quest. <span class="ia">IA:</span> ajusta layout + hand tracking.</li>
+      <li><b>Gemma local.</b> <span class="you">Você:</span> instala o Ollama e roda a Gemma no PC.
+        <span class="ia">IA:</span> liga a rota local de verdade.</li>
+      <li><b>Refinos.</b> contradição semântica (embeddings) + tempo real (SSE) + voz.</li>
+    </ol>
+    <p class="center muted">Se for fazer só uma coisa: <b style="color:var(--gold)">o Hub</b>.
+      Ele sozinho desbloqueia metade do projeto.</p>
+  </section>
+
+  <footer>
+    Gus Encarnado · um organismo que sente, habita e lembra.<br>
+    <span class="muted">Não é mágica — é arquitetura. A maior parte já existe; falta integrar.</span>
+  </footer>
+
+</div>
+</body>
+</html>
