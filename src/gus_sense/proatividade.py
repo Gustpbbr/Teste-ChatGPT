@@ -24,6 +24,7 @@ class Sinal:
     descricao: str
     area: str
     severidade: str    # "info" | "atencao"
+    motivo: str = ""   # A3: explicabilidade — por que este sinal foi gerado
 
 
 def detectar_lacuna(
@@ -33,7 +34,10 @@ def detectar_lacuna(
     agora = agora or datetime.now(timezone.utc)
     ativos = [f for f in frags if f.area == area and f.estado != "esquecido"]
     if not ativos:
-        return Sinal("lacuna", f"Nenhum registro em '{area}'.", area, "atencao")
+        return Sinal(
+            "lacuna", f"Nenhum registro em '{area}'.", area, "atencao",
+            motivo="área monitorada sem nenhum fragmento ativo",
+        )
 
     mais_recente = max(f.criado_em for f in ativos)
     silencio_h = (agora - mais_recente).total_seconds() / 3600
@@ -43,6 +47,7 @@ def detectar_lacuna(
             f"'{area}' sem registro há {silencio_h:.0f}h.",
             area,
             "atencao",
+            motivo=f"silêncio {silencio_h:.0f}h > limite {max_silencio_h:.0f}h",
         )
     return None
 
@@ -55,7 +60,10 @@ def detectar_acumulo_esquecidos(frags: list[Fragmento], limiar: int = 5) -> list
             por_area[f.area] = por_area.get(f.area, 0) + 1
 
     return [
-        Sinal("acumulo_esquecidos", f"'{area}' tem {n} esquecidos — revisar?", area, "info")
+        Sinal(
+            "acumulo_esquecidos", f"'{area}' tem {n} esquecidos — revisar?", area, "info",
+            motivo=f"{n} esquecidos >= limiar {limiar}",
+        )
         for area, n in por_area.items()
         if n >= limiar
     ]

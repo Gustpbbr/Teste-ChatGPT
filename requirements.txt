@@ -1,3 +1,4 @@
 # Runtime — manter mínimo. Adicionar conforme as tarefas exigirem.
+cryptography>=41   # A4: criptografia em repouso pra dado sensível
 # httpx        # cliente HTTP do HubClient (T2)
 # qdrant-client # se for falar direto com Qdrant em vez da API do Gus
