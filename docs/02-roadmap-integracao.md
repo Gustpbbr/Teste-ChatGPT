@@ -11,8 +11,8 @@ Ordenado por **dependência e custo**, não por empolgação. Cada bloco entrega
 |---|---|---|---|---|
 | **0** | Interocepção (Gus sente a si mesmo: heartbeat/health) | nada | não | ✅ implementado (ref) |
 | **1** | Primeiro sentido: Sensor Gateway + wearable → Hub | Gateway | não | ✅ implementado (ref) |
-| **2** | Corpo lê: orbe VR mostra memórias+sensores orbitando arquivos | Hub estável (B0) | sim | ⏳ |
-| **3** | Corpo escreve: gestos viram memória + rota local Gemma obrigatória | B2 + Gemma local | sim | ⏳ |
+| **2** | Corpo lê: orbe VR mostra memórias+sensores orbitando arquivos | Hub estável (B0) | sim | 🟡 scaffold |
+| **3** | Corpo escreve: gestos viram memória + rota local Gemma obrigatória | B2 + Gemma local | sim | 🟡 router + scaffold |
 | **4** | Tempo real: SSE (nó nasce ao vivo) + voz + mais sensores | B3 + `/hub/stream` | sim | ⏳ |
 | **5** | Proatividade encarnada: estado biométrico colore o espaço, contradições brilham | B1–B4 + métricas | sim | ⏳ |
 
