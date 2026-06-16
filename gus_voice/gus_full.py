@@ -22,18 +22,26 @@ from gus_voice import (
     init, speak, transcribe, record, chat, listen_for_wake, OLLAMA_URL
 )
 from gus_vision import capturar, descrever, extrair_texto, analisar_video
+from gus_screen import capturar_tela, descrever_tela, extrair_texto_tela, resumir_tela
 
 
 def detectar_comando(texto: str) -> tuple[str, str]:
-    """Detecta intenção do comando de voz. Retorna (modo, prompt/extra)."""
+    """Detecta intenção do comando de voz."""
     t = texto.lower()
     
+    # Screen commands
+    if any(p in t for p in ["o que tá na tela", "o que está na tela", "descreve a tela"]):
+        return "tela_descrever", ""
+    if any(p in t for p in ["lê a tela", "leia a tela", "texto da tela"]):
+        return "tela_ocr", ""
+    if any(p in t for p in ["resume a tela", "resumo da tela"]):
+        return "tela_resumo", ""
+    
+    # Camera commands
     if any(p in t for p in ["o que você vê", "o que vc vê", "o que tá vendo", "descreva a cena"]):
         return "visao", "O que você vê nesta imagem?"
-    
-    if any(p in t for p in ["o que está escrito", "lê isso", "leia a tela", "texto da tela"]):
+    if any(p in t for p in ["o que está escrito", "lê isso", "leia a tela do", "texto da"]):
         return "ocr", ""
-    
     if any(p in t for p in ["analise o vídeo", "analisar vídeo", "gravar cena"]):
         return "video", ""
     
@@ -41,16 +49,25 @@ def detectar_comando(texto: str) -> tuple[str, str]:
 
 
 def executar_comando(modo: str, prompt: str) -> str:
-    """Executa o comando detectado."""
-    if modo == "visao":
-        print("📷 Capturando...")
+    if modo == "tela_descrever":
+        print("📱 Capturando tela...")
+        return descrever_tela()
+    elif modo == "tela_ocr":
+        print("📱 Extraindo texto da tela...")
+        return extrair_texto_tela()
+    elif modo == "tela_resumo":
+        print("📱 Resumindo tela...")
+        return resumir_tela()
+    
+    elif modo == "visao":
+        print("📷 Capturando câmera...")
         img = capturar()
         if img:
             return descrever(img, prompt)
         return "Não consegui acessar a câmera"
     
     elif modo == "ocr":
-        print("📷 Capturando para OCR...")
+        print("📷 Capturando câmera para OCR...")
         img = capturar()
         if img:
             return extrair_texto(img)

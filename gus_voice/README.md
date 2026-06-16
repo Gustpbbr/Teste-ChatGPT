@@ -1,65 +1,53 @@
-# Gus Voice + Vision — Fase A + B
+# Gus Voice + Vision + Screen — Fase A + B + C
 
-> Wake word → voz OU visão → responde. 100% offline no S20.
+> Assistente completo: voz, câmera, tela. 100% offline no S20.
 
-## Instalação
+## Comandos de Voz
 
-```bash
-# Termux + Termux:API (F-Droid)
-pkg update && pkg upgrade
-pkg install python python-pip termux-api
-
-# Dependências
-pip install requests numpy sounddevice pillow
-pip install openai-whisper
-
-# Ollama
-ollama pull gemma3:4b
-```
+| Você diz | Gus faz |
+|----------|---------|
+| "Gus, o que você vê?" | Câmera: tira foto e descreve |
+| "Gus, o que está escrito?" | Câmera: OCR |
+| "Gus, analise o vídeo" | Câmera: 5 frames em 5s |
+| "Gus, o que tá na tela?" | Tela: screenshot e descrição |
+| "Gus, lê a tela" | Tela: extrai texto |
+| "Gus, resume a tela" | Tela: 1 frase |
+| Qualquer outra frase | Chat com Ollama |
 
 ## Arquivos
 
 | Arquivo | Função |
 |---------|--------|
-| `gus_voice.py` | Fase A: voz → LLM → TTS |
-| `gus_vision.py` | Fase B: câmera → descrição / OCR |
-| `gus_full.py` | Integrado: voz + visão |
+| `gus_voice.py` | Fase A: voz pura |
+| `gus_vision.py` | Fase B: câmera |
+| `gus_screen.py` | Fase C: tela |
+| `gus_full.py` | Integrado: voz + câmera + tela |
 
-## Uso
+## CLI (sem voz)
 
 ```bash
-# Apenas voz
-python3 gus_voice.py
-
-# Voz + visão integrados
-python3 gus_full.py
+python3 gus_voice.py      # Chat por voz
+python3 gus_screen.py     # Descreve tela
+python3 gus_screen.py ocr # Extrai texto da tela
+python3 gus_screen.py ask "essa fatura está certa?"
 ```
 
-## Comandos suportados
-
-| Você diz | Gus faz |
-|----------|---------|
-| "Gus, o que você vê?" | Tira foto e descreve a cena |
-| "Gus, o que está escrito?" | OCR — extrai texto da câmera |
-| "Gus, analise o vídeo" | 5 frames em 5s, descreve cada |
-| Qualquer outra frase | Chat normal com Ollama |
-
-## Arquitetura Completa
+## Arquitetura Final
 
 ```
 [Wake Word "Gus"]
        ↓
-[Grava áudio 5s] ──→ [Whisper tiny] ──→ texto
-       ↓                                      ↓
-[Detecta intenção]                    [Comando de câmera?]
-       ↓                                      ↓
-[Chat normal]                      [Captura foto]
-       ↓                                      ↓
-[Ollama Gemma] ←────────────────── [Ollama Vision]
+[Grava áudio] → [Whisper] → texto
        ↓
-[Android TTS] ──→ resposta em voz
+[Detecta intenção]
+       ↓
+  ┌────┼────┬──────────┐
+  ↓    ↓    ↓          ↓
+Chat Câmera Tela     Vídeo
+  ↓    ↓    ↓          ↓
+  └────┴────┴──────────┘
+       ↓
+[Ollama Gemma 4B]
+       ↓
+[Android TTS] → voz
 ```
-
-## Próximo: Fase C
-
-Adiciona: screen capture → "Gus, o que tá na tela?"
