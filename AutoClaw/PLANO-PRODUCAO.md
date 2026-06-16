@@ -54,22 +54,25 @@
 
 ---
 
-## 📅 Etapa 5 — Gus offline integrado ⏳ Pendente
+## 📅 Etapa 5 — Gus offline integrado ✅ CONCLUÍDA
 
 | Item | Detalhe |
 |------|---------|
-| **O que é** | Gus completo rodando local (Ollama + Qdrant) |
-| **Stack** | Python + Ollama + Qdrant |
-| **Dependência** | Ambiente local com Ollama |
-| **Status** | ⏳ A fazer (Fase 0 já validada) |
+| **O que é** | Servidor unificado: Ollama + API REST + memória local |
+| **Stack** | Python FastAPI + Ollama + SQLite |
+| **Output** | `bash start.sh` → http://localhost:8080 |
+| **Arquivos** | `gus_local/server.py`, `memory.py`, `start.sh` |
+| **Status** | ✅ Testado: Ollama + memória + health check OK |
 
 ---
 
 ## 📊 Progresso
 
 ```
-[✅ 1] ── [✅ 2] ── [⏳ 3] ── [✅ 4] ── [⏳ 5]
- 60%      60%      0%       60%      0%
+[✅ 1] ── [✅ 2] ── [⏳ 3] ── [✅ 4] ── [✅ 5]
+ 80%      80%      0%       80%      80%
+
+✅ 4 de 5 concluídas. Resta apenas Etapa 3 (MASE Fase 1 — precisa de Arduino).
 
 Próxima: Etapa 3 — MASE Fase 1 (Voz→LED)
 ```
