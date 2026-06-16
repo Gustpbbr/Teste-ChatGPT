@@ -150,22 +150,41 @@ if __name__ == "__main__":
     chat()
 PYEOF
 
-# ── Atalho ───────────────────────────────────────────────────────
+# ── Baixar interface web ────────────────────────────────────────
+echo -e "   📥 Baixando interface web..."
+curl -sL https://raw.githubusercontent.com/Gustpbbr/Teste-ChatGPT/organizacao-autoclaw/MASE/gus_web.py -o ~/gus-local/gus_web.py
+
+# ── Atalhos ──────────────────────────────────────────────────────
 cat > ~/gus-local/iniciar.sh << 'SHEOF'
 #!/bin/bash
-# Inicia o Gus Local
+# Inicia o Gus Local (terminal)
 cd ~/gus-local
-
-# Garante que Ollama está rodando
 if ! pgrep ollama > /dev/null; then
     echo "Iniciando Ollama..."
     ollama serve &
     sleep 3
 fi
-
 python3 gus_chat.py
 SHEOF
-chmod +x ~/gus-local/iniciar.sh
+
+cat > ~/gus-local/iniciar_web.sh << 'SHEOF'
+#!/bin/bash
+# Inicia o Gus Web (interface bonita no navegador)
+cd ~/gus-local
+if ! pgrep ollama > /dev/null; then
+    echo "Iniciando Ollama..."
+    ollama serve &
+    sleep 3
+fi
+echo ""
+echo "🦾 Gus Web iniciado!"
+echo "   Abra no Chrome: http://localhost:8080"
+echo "   Ctrl+C para encerrar"
+echo ""
+python3 gus_web.py
+SHEOF
+
+chmod +x ~/gus-local/iniciar.sh ~/gus-local/iniciar_web.sh
 
 # ── Finalizado ───────────────────────────────────────────────────
 echo ""
@@ -175,10 +194,14 @@ echo -e "${GREEN}============================================${NC}"
 echo ""
 echo -e "   📁 Pasta: ${CYAN}~/gus-local/${NC}"
 echo -e ""
-echo -e "   🚀 Para iniciar:"
-echo -e "      ${CYAN}cd ~/gus-local && bash iniciar.sh${NC}"
+echo -e "   💬 Modo terminal:"
+echo -e "      ${CYAN}bash ~/gus-local/iniciar.sh${NC}"
 echo -e ""
-echo -e "   🧪 Para testar rápido:"
+echo -e "   🌐 Modo web (abre no Chrome):"
+echo -e "      ${CYAN}bash ~/gus-local/iniciar_web.sh${NC}"
+echo -e "      Depois abra: http://localhost:8080"
+echo -e ""
+echo -e "   🧪 Teste rápido:"
 echo -e "      ${CYAN}ollama run ${MODELO} 'Olá Gus!'${NC}"
 echo ""
 echo -e "   📱 Pronto! Gus rodando 100% offline no seu S20."
