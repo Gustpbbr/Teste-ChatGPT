@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="claro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aula 1 — Por que existe uma Constituição? — slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{ --escala:1; --dur-cena:1.8s; --serif:"EB Garamond",Georgia,serif; --display:"Cormorant Garamond",Georgia,serif; --sans:"Inter",system-ui,sans-serif; }
+[data-theme="claro"]{ --bg:#FBF7EE; --bg2:#FDFBF5; --card:#FFFEF9; --fg:#2B2B2B; --forte:#15110C;
+  --bronze:#8C6912; --ouro:#DAA520; --ouro-claro:#F4D06F; --linha:rgba(140,105,18,.28); --vibra:#B91C28; }
+[data-theme="claro-fixo"]{ --bg:#FBF7EE; --bg2:#FDFBF5; --card:#FFFEF9; --fg:#2B2B2B; --forte:#15110C;
+  --bronze:#8C6912; --ouro:#DAA520; --ouro-claro:#F4D06F; --linha:rgba(140,105,18,.28); --vibra:#B91C28; }
+[data-theme="escuro"]{ --bg:#16120C; --bg2:#1E1812; --card:#241E15; --fg:#D8CDB4; --forte:#F2E9D4;
+  --bronze:#C9A227; --ouro:#DAA520; --ouro-claro:#F4D06F; --linha:rgba(201,162,39,.25); --vibra:#FF5A66; }
+[data-theme="claro"] body.cena-papel{ --bg:#FFFFFF; --bg2:#F7F7F7; --card:#FFFFFF; --fg:#1B1B1B; --forte:#000;
+  --bronze:#3C3C3C; --ouro:#C99700; --ouro-claro:#E8C868; --linha:rgba(0,0,0,.5); --vibra:#C92A2A; }
+[data-theme="claro"] body.cena-verde{ --bg:#F1F5EB; --bg2:#EAF0E2; --card:#F7FAF2; --fg:#2B2F26; --forte:#141711;
+  --bronze:#5E7355; --ouro:#8FA03A; --ouro-claro:#C9D389; --linha:rgba(94,115,85,.3); --vibra:#A33121; }
+[data-theme="claro"] body.cena-noite{ --bg:#15141A; --bg2:#1B1A22; --card:#211F29; --fg:#D6D2C8; --forte:#F2EEE2;
+  --bronze:#B9A66B; --ouro:#E8C868; --ouro-claro:#F4D88E; --linha:rgba(214,210,200,.22); --vibra:#FF6B73; }
+[data-theme="claro"] body.cena-templo{ --bg:#1C160D; --bg2:#241C12; --card:#2A2216; --fg:#EFE6CF; --forte:#FBF1D6;
+  --bronze:#D9B45A; --ouro:#F4D06F; --ouro-claro:#F7DE8E; --linha:rgba(217,180,90,.30); --vibra:#FF6B73; }
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--serif);
+  font-size:calc(clamp(1.15rem,.6rem + 1vw,1.3rem) * var(--escala));line-height:1.74;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;touch-action:manipulation;
+  font-feature-settings:"liga" 1,"onum" 1,"kern" 1;text-rendering:optimizeLegibility;
+  transition:background var(--dur-cena) cubic-bezier(.45,.05,.25,1),color var(--dur-cena) cubic-bezier(.45,.05,.25,1)}
+h1,h2,h3,strong,.eyebrow,.subtit,.pensamento,.citacao{color:var(--forte);
+  transition:color var(--dur-cena) cubic-bezier(.45,.05,.25,1)}
+body.em-fade main{text-shadow:0 0 .05em rgba(251,247,238,.95),0 0 .16em rgba(251,247,238,.55)}
+main{transition:text-shadow .6s ease}
+.box,.popup-q,.desafio,table,tr,td,th,.tbl,.dtag{transition:background-color var(--dur-cena) cubic-bezier(.45,.05,.25,1),
+  border-color var(--dur-cena) cubic-bezier(.45,.05,.25,1),color var(--dur-cena) cubic-bezier(.45,.05,.25,1)}
+.wrap{max-width:650px;margin:0 auto;padding:0 26px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(2rem,1.2rem + 3.4vw,3.2rem);line-height:1.1;margin:.4em 0 .3em}
+h2{font-family:var(--display);font-weight:600;font-size:clamp(1.6rem,1.1rem + 2.2vw,2.3rem);line-height:1.15;margin:1.6em 0 .4em}
+h3{font-family:var(--display);font-weight:600;font-size:1.45rem;margin:1.7em 0 .3em}
+p{margin:0 0 1.05em}
+.subtit{font-family:var(--display);font-style:italic;color:var(--bronze);margin:-.4em 0 1.2em}
+.eyebrow{font-family:var(--sans);font-weight:700;font-size:.7rem;letter-spacing:.27em;text-transform:uppercase;color:var(--bronze);display:block;margin:2.2em 0 .4em}
+section{padding:2.2rem 0}
+.parte{border-bottom:1px solid var(--linha)}
+.pensamento{font-family:var(--display);font-style:italic;color:var(--bronze);font-size:1.05em}
+.nota{font-family:var(--sans);font-size:.78em;color:var(--bronze);border-left:3px solid var(--linha);padding-left:.9em;margin:1.2em 0}
+.ftag{display:inline-block;font-family:var(--sans);font-weight:700;font-size:.56rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--vibra);border:1px dashed var(--vibra);border-radius:6px;
+  padding:.15em .5em;margin:.2em 0 1em;opacity:.75}
+.ftag-l{margin:0}
+.todo-img{font-family:var(--sans);font-size:.82em;color:var(--bronze);background:var(--bg2);
+  border:1px dashed var(--linha);border-radius:12px;padding:.9em 1.1em;margin:1.4em 0}
+.todo-img .todo-tag{font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:.62rem;color:var(--vibra)}
+.todo-hotspots{list-style:none;margin:.8em 0 0;padding:0;display:flex;flex-direction:column;gap:.5em}
+.todo-hotspots li{background:var(--card);border:1px solid var(--linha);border-left:3px solid var(--ouro);
+  border-radius:9px;padding:.55em .8em;font-size:.92em;line-height:1.45;color:var(--fg)}
+.todo-hotspots strong{color:var(--forte)}
+.citacao{font-family:var(--display);font-style:italic;font-size:1.12em;line-height:1.5;border-left:3px solid var(--ouro);
+  margin:1.4em 0;padding:.2em 0 .2em 1em}
+.box{background:var(--card);border:1px solid var(--linha);border-left:4px solid var(--ouro);border-radius:12px;
+  padding:1rem 1.2rem;margin:1.4em 0}
+.box .tag{display:block;font-family:var(--sans);font-weight:900;font-size:.62rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--bronze);margin-bottom:.4em}
+.box .ic{margin-right:.4em}
+.box.armadilha{border-left-color:var(--vibra)}
+.box.armadilha .tag{color:var(--vibra)}
+.box p{margin:0;font-size:.95em}
+.popup-q{display:flex;gap:.8rem;align-items:flex-start;background:var(--card);border:1px solid var(--linha);
+  border-left:4px solid #5E7355;border-radius:14px;padding:1.1rem 1.2rem;margin:1.4em 0}
+.popup-q .avatar{font-size:1.6rem}
+.popup-q .quem{display:block;font-family:var(--sans);font-weight:900;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.3em}
+.popup-q .fala{font-size:.93em}
+.tbl{width:100%;margin:1.6em 0;background:var(--card);border:2px solid var(--forte);border-radius:6px;overflow:hidden}
+.tbl.rolavel{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:.92em;line-height:1.45;color:var(--fg);text-align:left}
+th{font-family:var(--sans);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;
+  background:var(--bg2);color:var(--forte);padding:.8rem 1rem;border-bottom:2px solid var(--forte)}
+td{padding:.8rem 1rem;border-bottom:1px solid var(--linha);vertical-align:top}
+tr:last-child td{border-bottom:0}
+@media(max-width:620px){
+  .tbl:not(.rolavel) table,.tbl:not(.rolavel) thead,.tbl:not(.rolavel) tbody,.tbl:not(.rolavel) tr,
+  .tbl:not(.rolavel) th,.tbl:not(.rolavel) td{display:block;width:100%}
+  .tbl:not(.rolavel) thead{display:none}
+  .tbl:not(.rolavel) tr{border-bottom:2px solid var(--forte);padding:.4rem 0}
+  .tbl:not(.rolavel) tr:last-child{border-bottom:0}
+  .tbl:not(.rolavel) td{border-bottom:0;padding:.4rem 1rem}
+  .tbl:not(.rolavel) td::before{content:attr(data-l);display:block;font-family:var(--sans);font-weight:700;
+    font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze);margin-bottom:.1em}
+  .tbl.rolavel table{min-width:680px}
+}
+.mt-amarelo{background:#FFE211;color:#111;padding:.04em .26em;border-radius:3px;font-weight:600;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+body.cena-templo .mt-amarelo,body.cena-noite .mt-amarelo,[data-theme="escuro"] .mt-amarelo{
+  background:rgba(244,208,111,.3);color:inherit}
+.enf-a{background-image:linear-gradient(90deg,var(--ouro),var(--ouro-claro));background-repeat:no-repeat;
+  background-position:0 100%;background-size:0% .12em;padding-bottom:.06em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;transition:background-size 1.2s cubic-bezier(.2,.7,.2,1) .15s}
+.enf-a.acesa{background-size:100% .12em}
+.enf-c{background:rgba(218,165,32,.14);padding:.04em .25em;border-radius:3px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.desafio{background:var(--card);border:1px solid var(--linha);border-left:4px solid var(--bronze);
+  border-radius:14px;padding:1.2rem 1.3rem;margin:1.6em 0}
+.dtag{display:block;font-family:var(--sans);font-weight:900;font-size:.64rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--bronze);margin-bottom:.5em}
+.desafio .enun{font-size:.96em}
+.alts{display:flex;flex-direction:column;gap:.45rem;margin:.7em 0 .3em}
+.alts.julgue{flex-direction:row;flex-wrap:wrap}
+.alt-d{text-align:left;font-family:var(--serif);font-size:.94em;color:var(--fg);
+  background:var(--bg2);border:1px solid var(--linha);border-radius:10px;padding:.75em 1em;cursor:pointer;min-height:44px}
+.alts.julgue .alt-d{font-family:var(--sans);font-weight:900;font-size:.78rem;flex:1;text-align:center}
+.alt-d.certa{border-color:#3F7A45;background:rgba(63,122,69,.12)}
+.alt-d.errada{border-color:var(--vibra);background:rgba(185,28,40,.08);opacity:.75}
+.dfb{font-family:var(--sans);font-size:.78em;color:var(--bronze);margin:.4em 0 0;min-height:1em}
+.gab-corpo{display:none;border-top:2px solid var(--linha);margin-top:.8em;padding-top:.7em}
+.gab-corpo p{font-size:.9em}
+.desafio.resolvido .gab-corpo{display:block}
+.gab{margin-top:.7em}
+.gab summary{font-family:var(--sans);font-weight:900;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--bg);background:var(--forte);display:inline-block;border-radius:99px;padding:.6em 1.1em;cursor:pointer;list-style:none}
+.gab summary::-webkit-details-marker{display:none}
+.gab[open] summary{opacity:.5}
+.gab p{font-size:.9em;margin:.8em 0 0}
+.lore{transition:opacity .6s ease,filter .6s ease}
+body.lei-seca .lore,body.lei-seca .pensamento,body.lei-seca .citacao{opacity:.18;filter:saturate(.5);transition:opacity .6s ease}
+body.lei-seca .lore:active,body.lei-seca .pensamento:active{opacity:.85}
+.figura{position:relative;margin:1.8rem auto;max-width:520px}
+.figura img{display:block;width:100%;border-radius:16px;will-change:filter;box-shadow:0 20px 50px -20px rgba(0,0,0,.5)}
+.figura figcaption{font-family:var(--sans);font-size:.7rem;color:var(--bronze);text-align:center;margin-top:.6em}
+.hot{position:absolute;width:34px;height:34px;border-radius:50%;border:2px solid var(--ouro-claro);
+  background:rgba(218,165,32,.35);cursor:pointer;transform:translate(-50%,-50%);padding:0}
+.hot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(244,208,111,.55);animation:pulsar 2.2s infinite}
+@keyframes pulsar{0%{transform:scale(.7);opacity:1}100%{transform:scale(1.25);opacity:0}}
+.hot-card{position:absolute;z-index:20;width:min(280px,72vw);background:var(--card);border:1px solid var(--ouro);
+  border-radius:12px;padding:.9rem 1rem;box-shadow:0 14px 36px -10px rgba(0,0,0,.55);display:none}
+.hot-card.on{display:block}
+.hot-card .ht{font-family:var(--sans);font-weight:900;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);display:block;margin-bottom:.3em}
+.hot-card p{font-size:.82em;line-height:1.5;margin:0}
+.autor{font-variant:small-caps;letter-spacing:.04em;font-weight:600;border-bottom:2px dotted var(--ouro);cursor:pointer}
+#veu{position:fixed;inset:0;background:rgba(21,17,12,.45);z-index:100;opacity:0;pointer-events:none;transition:opacity .3s}
+#veu.on{opacity:1;pointer-events:auto}
+#folha{position:fixed;left:0;right:0;bottom:0;z-index:110;background:var(--card);color:var(--fg);
+  border-radius:22px 22px 0 0;box-shadow:0 -16px 50px -12px rgba(0,0,0,.5);max-height:62svh;
+  transform:translateY(105%);transition:transform .38s cubic-bezier(.2,.8,.25,1);display:flex;flex-direction:column}
+#folha.on{transform:none}
+#folha .alca{width:46px;height:5px;border-radius:99px;background:var(--linha);margin:.7rem auto .2rem;flex:none}
+#folha .corpo{overflow-y:auto;padding:0 1.5rem 2rem}
+#folha h3{margin:.5em 0 .3em}
+#folha .quem{font-family:var(--sans);font-weight:900;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze)}
+#folha p{font-size:.92em}
+.tlwrap{margin:2rem 0}
+.tl{display:flex;gap:.5rem;overflow-x:auto;padding:.6rem .2rem 1rem;scrollbar-width:none}
+.tl::-webkit-scrollbar{display:none}
+.tl button{flex:none;font-family:var(--sans);font-weight:900;font-size:.76rem;color:var(--fg);
+  background:var(--card);border:1px solid var(--linha);border-radius:12px;padding:.65em .95em;cursor:pointer;min-height:42px}
+.tl button.ativo{background:var(--forte);color:var(--bg);border-color:var(--forte)}
+#tlCard{background:var(--card);border:1px solid var(--linha);border-left:4px solid var(--ouro);border-radius:14px;padding:1rem 1.1rem}
+#tlCard .ht{font-family:var(--display);font-weight:600;font-size:1.2em;color:var(--forte);display:block;margin-bottom:.2em}
+#tlCard p{font-size:.88em;margin:0}
+.prog-zone{position:fixed;top:0;left:0;width:100%;height:30px;z-index:80;cursor:pointer;touch-action:none}
+.prog-zone .linha{height:4px;width:0%;background:linear-gradient(90deg,var(--bronze),var(--ouro),var(--ouro-claro));border-radius:0 3px 3px 0}
+.prog-zone.scrub .linha{height:7px}
+.prog-no{position:absolute;top:0;width:2px;height:8px;background:var(--bronze);opacity:.5}
+.prog-no.lido{background:var(--ouro);opacity:1}
+.prog-balao{position:fixed;top:14px;transform:translateX(-50%);background:var(--forte);color:var(--bg);
+  font-family:var(--sans);font-weight:700;font-size:.68rem;padding:.35em .8em;border-radius:8px;z-index:81;
+  opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap;max-width:86vw;overflow:hidden;text-overflow:ellipsis}
+.prog-balao.on{opacity:1}
+#memChip{position:fixed;top:38px;left:10px;z-index:79;font-family:var(--sans);font-weight:700;font-size:.56rem;
+  background:var(--card);border:1px solid var(--linha);border-radius:99px;padding:.45em .8em;color:var(--bronze);max-width:70vw}
+#memChip.ok{border-color:#3F7A45;color:#2C5E32}
+#memChip.ruim{border-color:var(--vibra);color:var(--vibra)}
+/* leitura limpa: controles invisíveis até o toque duplo */
+.ui-flutuante{transition:opacity .3s ease,visibility .3s ease}
+body.ui-oculta .ui-flutuante{opacity:0;visibility:hidden;pointer-events:none}
+#dicaUI{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:95;
+  font-family:var(--sans);font-weight:700;font-size:.68rem;background:var(--forte);color:var(--bg);
+  border-radius:99px;padding:.7em 1.2em;opacity:0;pointer-events:none;transition:opacity .4s}
+#dicaUI.on{opacity:.92}
+#selAcoes{position:fixed;z-index:115;display:none;gap:.4rem}
+#selAcoes.on{display:flex}
+#selAcoes button{font-family:var(--sans);font-weight:900;font-size:.7rem;border:0;border-radius:99px;
+  padding:.7em 1em;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.4)}
+#btnGrifo{background:#FFE211;color:#111}
+#btnCarta{background:var(--forte);color:var(--bg)}
+.controles{position:fixed;top:40px;right:10px;display:flex;flex-direction:column;gap:.5rem;z-index:75}
+.controles button{width:42px;height:42px;border-radius:50%;border:1px solid var(--linha);background:var(--card);
+  color:var(--forte);font-family:var(--sans);font-weight:700;font-size:.9rem;cursor:pointer;box-shadow:0 4px 14px -6px rgba(0,0,0,.25)}
+#btnLeiSeca{position:fixed;left:10px;bottom:64px;z-index:75;font-family:var(--sans);font-weight:900;font-size:.62rem;
+  letter-spacing:.06em;border:1px solid var(--linha);background:var(--card);color:var(--forte);
+  border-radius:99px;padding:.7em 1em;cursor:pointer;box-shadow:0 6px 18px -8px rgba(0,0,0,.3)}
+#btnLeiSeca.ativo{background:var(--forte);color:var(--bg);border-color:var(--forte)}
+#placar{position:fixed;left:10px;bottom:108px;z-index:75;font-family:var(--sans);font-weight:700;font-size:.6rem;
+  background:var(--card);border:1px solid var(--linha);border-radius:99px;padding:.55em .9em;color:var(--bronze)}
+#placar b{color:var(--forte)}
+#btnDeck{position:fixed;right:10px;bottom:64px;z-index:75;font-family:var(--sans);font-weight:900;font-size:.66rem;
+  border:0;background:linear-gradient(135deg,var(--ouro),var(--ouro-claro));color:#15110C;
+  border-radius:99px;padding:.85em 1.1em;cursor:pointer;box-shadow:0 8px 22px -8px rgba(218,165,32,.6)}
+.grifo-leitor{background:linear-gradient(100deg,rgba(255,228,92,.8),rgba(255,221,64,.95));padding:.03em .15em;
+  border-radius:3px;cursor:pointer;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.saltos{position:fixed;right:10px;bottom:118px;display:flex;flex-direction:column;gap:.5rem;z-index:70;
+  opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.saltos.on{opacity:1;pointer-events:auto;transform:none}
+.saltos button{width:42px;height:42px;border-radius:50%;border:1px solid var(--linha);background:var(--card);
+  color:var(--bronze);font-size:1.05rem;cursor:pointer;box-shadow:0 6px 18px -8px rgba(0,0,0,.35)}
+#navInferior{position:fixed;left:0;right:0;bottom:0;z-index:85;background:var(--card);border-top:1px solid var(--linha);
+  padding:.5rem .6rem calc(.5rem + env(safe-area-inset-bottom));display:flex;gap:.4rem;align-items:center;
+  overflow-x:auto;scrollbar-width:none;transition:background-color var(--dur-cena) cubic-bezier(.45,.05,.25,1)}
+#navInferior::-webkit-scrollbar{display:none}
+#navInferior button{flex:none;font-family:var(--sans);font-weight:700;font-size:.68rem;color:var(--fg);
+  border:1px solid var(--linha);background:var(--bg2);border-radius:99px;padding:.5em .95em;min-height:36px;cursor:pointer}
+#navInferior button.atual{background:var(--ouro);border-color:var(--ouro);color:#15110C}
+.nav-caps{display:flex;gap:.3rem;flex:none;border-right:1px solid var(--linha);padding-right:.5rem;margin-right:.2rem}
+.cap-nav{display:inline-flex;align-items:center;justify-content:center;min-width:36px;min-height:36px;
+  text-decoration:none;font-family:var(--sans);font-weight:700;font-size:.68rem;color:var(--fg);
+  border:1px solid var(--linha);background:var(--bg2);border-radius:99px;padding:.5em .8em}
+.cap-nav.estante{background:var(--ouro);border-color:var(--ouro);color:#15110C}
+#deck{position:fixed;inset:0;z-index:120;background:rgba(21,17,12,.55);display:none;align-items:center;justify-content:center;padding:1.2rem}
+#deck.aberto{display:flex}
+.dk-card{width:min(560px,94vw);background:var(--card);border:1px solid var(--linha);border-radius:18px;
+  padding:1.5rem 1.4rem;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);display:flex;flex-direction:column;gap:1rem;
+  min-height:300px;max-height:82svh;overflow-y:auto}
+.dk-topo{display:flex;justify-content:space-between;align-items:center;font-family:var(--sans);font-weight:700;
+  font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
+.dk-topo button{border:0;background:none;font-size:1.3rem;cursor:pointer;color:var(--bronze);min-width:44px}
+.dk-frente{font-family:var(--display);font-weight:600;font-size:1.15em;line-height:1.45;color:var(--forte);flex:1}
+.dk-verso{display:none;border-top:2px solid var(--linha);padding-top:1rem;font-size:.92em}
+.dk-card.virado .dk-verso{display:block}
+.dk-acoes{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+.dk-acoes button{font-family:var(--sans);font-weight:900;font-size:.76rem;border-radius:12px;border:1px solid var(--linha);
+  padding:.85em 1.3em;cursor:pointer;min-height:46px}
+.dk-virar{background:var(--forte);color:var(--bg);border-color:var(--forte)}
+.dk-ok{display:none;background:rgba(63,122,69,.14);color:#2C5E32;border-color:#3F7A45}
+.dk-erro{display:none;background:rgba(185,28,40,.1);color:var(--vibra);border-color:var(--vibra)}
+.dk-card.virado .dk-virar{display:none}
+.dk-card.virado .dk-ok,.dk-card.virado .dk-erro{display:inline-block}
+footer{padding:3rem 0 8rem;text-align:center;font-family:var(--sans);font-size:.75rem;color:var(--bronze)}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  body,main,.lore,#folha,.hot::after{transition:none!important;animation:none!important}
+  .enf-a{background-size:100% .12em;transition:none}
+}
+</style>
+<style id="aula-tema">
+:root{ --serif:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --display:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+[data-theme="claro"],[data-theme="claro-fixo"]{
+  --bg:#FFFFFF; --bg2:#F5F5F5; --card:#FFFFFF; --fg:#1A1A1A; --forte:#000000;
+  --bronze:#9A6B00; --ouro:#E0A500; --ouro-claro:#FFD86B; --linha:#E5E5E5; --vibra:#C0392B; }
+body{ font-feature-settings:"kern" 1; -webkit-font-smoothing:antialiased;
+  font-size:calc(clamp(0.92rem,0.82rem + 0.4vw,1.02rem) * var(--escala)); line-height:1.68; }
+h1{ font-weight:800; font-size:clamp(1.5rem,1.1rem + 1.6vw,2.05rem); letter-spacing:-.02em; line-height:1.18; }
+h2{ font-weight:800; font-size:clamp(1.2rem,0.95rem + 1vw,1.55rem); letter-spacing:-.015em; }
+h3{ font-weight:700; font-size:1.08rem; letter-spacing:-.01em; }
+.subtit{ font-style:normal; color:var(--bronze); }
+.mt-amarelo{ background:#FFEC9B; color:#1a1a1a; }
+.mt-rosa{ background:#FFC9CF; color:#1a1a1a; padding:.04em .26em; border-radius:3px; font-weight:600; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.mt-verde{ background:#CDEBB4; color:#1a1a1a; padding:.04em .26em; border-radius:3px; font-weight:600; -webkit-box-decoration-break:clone; box-decoration-break:clone; }
+.subhead{ font-weight:700; color:var(--forte); margin:1.2em 0 .2em; font-size:.98rem; }
+.numfoco{ display:flex; align-items:baseline; gap:.55em; margin:1em 0; }
+.numfoco .nf-num{ font-weight:800; font-size:2rem; line-height:1; background:#FFEC9B; color:#1a1a1a; padding:.02em .2em; border-radius:.1em; }
+.numfoco .nf-cap{ font-size:1rem; }
+.grifo-leitor{ background:linear-gradient(180deg,transparent 55%,#FFE08A 55%); }
+</style>
+
+<style id="deck-css">
+  html,body{height:100%;margin:0}
+  body{overflow:hidden;background:var(--bg);color:var(--fg)}
+  #source{display:none}
+  #deck{position:fixed;left:0;right:0;top:0;bottom:66px}
+  .slide{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    opacity:0;pointer-events:none;transform:translateX(34px);
+    transition:opacity .45s ease,transform .45s ease;padding:44px 18px 90px}
+  .slide.active{opacity:1;pointer-events:auto;transform:none}
+  .slide .inner{max-width:760px;margin:0 auto}
+  .slide h1,.slide h2,.slide h3{margin-top:.2em}
+  /* setas laterais */
+  .seta{position:fixed;top:0;bottom:66px;width:64px;display:grid;place-items:center;z-index:60;
+    border:0;background:transparent;color:var(--bronze);font-size:2rem;cursor:pointer;opacity:.45;
+    transition:opacity .2s,background .2s}
+  .seta:hover{opacity:1;background:linear-gradient(90deg,rgba(0,0,0,.06),transparent)}
+  #setaDir{right:0}.seta#setaDir:hover{background:linear-gradient(270deg,rgba(0,0,0,.06),transparent)}
+  #setaEsq{left:0}
+  /* progresso */
+  #progwrap{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(140,105,18,.15);z-index:70}
+  #prog{height:100%;width:0;background:linear-gradient(90deg,var(--bronze),var(--ouro),var(--ouro-claro));
+    transition:width .3s ease}
+  /* barra inferior */
+  #controles2{position:fixed;left:0;right:0;bottom:0;height:66px;z-index:70;display:flex;align-items:center;
+    justify-content:center;gap:10px;background:var(--card);border-top:1px solid var(--linha);
+    padding-bottom:env(safe-area-inset-bottom)}
+  #controles2 button{font-family:var(--sans,sans-serif);font-weight:700;font-size:.8rem;color:var(--fg);
+    border:1px solid var(--linha);background:var(--bg2);border-radius:99px;padding:.6em 1.1em;cursor:pointer;
+    min-height:40px}
+  #controles2 button:hover{border-color:var(--ouro)}
+  #contador{font-family:var(--sans,sans-serif);font-weight:700;font-size:.78rem;color:var(--bronze);
+    min-width:74px;text-align:center}
+  #dica2{position:fixed;right:12px;top:12px;z-index:70;font-family:var(--sans,sans-serif);font-size:.66rem;
+    color:var(--bronze);opacity:.7}
+</style>
+
+</head>
+<body>
+<div id="progwrap"><div id="prog"></div></div>
+<div id="dica2">← → ou espaço · swipe no toque</div>
+<button class="seta" id="setaEsq" aria-label="anterior">‹</button>
+<button class="seta" id="setaDir" aria-label="próximo">›</button>
+
+<div id="source"><main>
+<div class="parte" id="parte-0" data-parte="Início"><section data-sec="Abertura"><div class="wrap">
+<span class="eyebrow">Livro 1 · Direito Constitucional</span>
+<h1>Por que existe uma Constituição?</h1>
+<p class="subtit">Constitucionalismo · Neoconstitucionalismo · Conceito, Classificações e Estrutura da CF/88</p>
+<p class="eyebrow" style="margin-top:1.4em">O que você vai aprender</p>
+<ul>
+<li>O que é <strong>constitucionalismo</strong> e por que toda a teoria constitucional nasce da ideia de <span class="mt-amarelo">limitar o poder</span>.</li>
+<li>As <strong>fases históricas</strong> do constitucionalismo e os <strong>marcos</strong> inglês, americano e francês.</li>
+<li>O <strong>modelo brasileiro</strong> e as Constituições do país.</li>
+<li>O que é <strong>neoconstitucionalismo</strong>, suas características, o impacto no Brasil pós-1988 e as críticas.</li>
+<li>Os <strong>sentidos da Constituição</strong> (Lassalle, Schmitt, Kelsen, Hesse, Meirelles Teixeira) — o ponto mais cobrado.</li>
+<li>Todas as <strong>classificações</strong> e como a CF/88 se encaixa em cada uma (mnemônico <strong>PEDRA FoDE</strong>).</li>
+<li>A <strong>estrutura da CF/88</strong>: preâmbulo, parte dogmática, ADCT e emendas.</li>
+<li>Ao final: <strong>questões reais comentadas</strong>, <strong>mapa de pegadinhas por banca</strong> e <strong>checklist de revisão</strong>.</li>
+</ul>
+<div class="parte" id="parte-1" data-parte="Parte 1"><section data-sec="CONSTITUCIONALISMO"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>CONSTITUCIONALISMO</h2>
+<h3>1.1 O que é constitucionalismo</h3>
+<p>Tudo no Direito Constitucional começa com uma pergunta simples: <strong>como impedir que quem manda abuse de quem obedece?</strong> A resposta tem um nome — <span class="mt-amarelo">constitucionalismo</span>.</p>
+<p>Constitucionalismo é o <strong>movimento político, jurídico e ideológico</strong> que defende a <span class="mt-amarelo">limitação do poder estatal</span> por meio de uma Constituição e a <strong>garantia de direitos fundamentais</strong> aos cidadãos. Em termos diretos: é a ideia de que <span class="mt-amarelo">nenhum governante está acima da lei</span> — deve existir uma norma superior que organize o Estado e proteja as pessoas.</p>
+<p>Três ideias sustentam esse conceito, e você precisa decorá-las:</p>
+<ol>
+<li><strong>Limitação do poder</strong> — o governante não pode tudo; há freios jurídicos contra o arbítrio.</li>
+<li><strong>Garantia de direitos</strong> — os cidadãos têm direitos que o Estado deve respeitar (não como favor, mas como obrigação).</li>
+<li><strong>Supremacia da Constituição</strong> — existe uma lei superior a todas as outras.</li>
+</ol>
+<p>A doutrina clássica reforça a mesma palavra-chave: <strong>limitar</strong>. Canotilho fala em "princípio do governo limitado"; Pedro Lenza, no "movimento que visa a limitar o poder arbitrário"; Karl Loewenstein, na "busca por limitações ao poder absoluto".</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PRA CRAVAR.</strong> Constitucionalismo é <span class="mt-rosa">limitar</span> o poder. Toda alternativa que disser "expansão dos poderes do Estado" ou "fortalecimento do governante" está <span class="mt-rosa">ERRADA</span>.</p></div>
+<p>Em sentido amplo, qualquer sociedade com regras fundamentais de organização (mesmo não escritas) já tem constitucionalismo; em <strong>sentido estrito</strong>, o termo designa o movimento moderno, pós-séc. XVIII, com Constituição escrita e rígida.</p>
+<h3>1.2 As fases (momentos) do constitucionalismo</h3>
+<p>A doutrina (Loewenstein, Lenza) divide a evolução em momentos sucessivos. Em ordem cronológica:</p>
+<ol>
+<li><strong>Antigo (Idade Antiga)</strong> — limitação ainda rudimentar.<br>• <strong>Hebreus:</strong> no Estado teocrático, o poder do rei era limitado pela "lei do Senhor"; os profetas fiscalizavam.<br>• <strong>Gregos (Atenas, séc. V a.C.):</strong> democracia direta, com a Constituição de Sólon. Atenção: Aristóteles <strong>identificou</strong> três funções do poder (deliberativa, magistratura e judicial), mas <span class="mt-rosa">não</span> propôs a separação — essa é de Montesquieu (séc. XVIII).<br>• <strong>Romanos:</strong> o termo <em>constitutio</em> já existia, mas significava norma do imperador. Roma deu a Lei das Doze Tábuas (451 a.C.).</li>
+<li><strong>Medieval (séc. V a XV)</strong> — limitação por direito superior (jusnaturalismo) e por pactos rei × estamentos. Marco: a <strong>Magna Carta (1215)</strong>, imposta ao Rei João Sem-Terra — embrião dos direitos individuais.</li>
+<li><strong>Moderno / Liberal (fim do séc. XVIII)</strong> — Constituições escritas e rígidas, separação de poderes, Estado liberal, direitos de <span class="mt-amarelo">1ª dimensão</span> (liberdade). Marcos: EUA (1787) e França (1789).</li>
+<li><strong>Social (séc. XX, pós-1ª Guerra)</strong> — Estado social, Constituições dirigentes, direitos de <span class="mt-amarelo">2ª dimensão</span> (sociais). Marcos: México (1917) e Weimar (1919).</li>
+<li><strong>Contemporâneo / Neoconstitucionalismo (pós-2ª Guerra)</strong> — força normativa, pós-positivismo, jurisdição constitucional. É o tema do item 2.</li>
+</ol>
+<p>Além dessas, há as <strong>frentes do séc. XXI</strong> — constitucionalismo <strong>latino-americano</strong> (Estado plurinacional, direitos da natureza) e <strong>digital</strong> (proteção de dados, EC 115/2022) — e a projeção do <strong>constitucionalismo do futuro</strong> (Dromi, item 2.5).</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>A doutrina diverge na periodização.</strong> Para Pedro Lenza, a <strong>Magna Carta</strong> é marco do constitucionalismo <span class="mt-rosa">medieval</span>. Para Novelino, "antigo" é amplo (até o séc. XVIII) e a Magna Carta cabe ali. <strong>Na prova, siga a nomenclatura que a banca usar</strong> — as duas estão certas.</p></div>
+<p>Para fixar a linha do tempo:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Período</th>
+<th>Marca principal</th>
+<th>Marcos</th>
+<th>Dimensão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Fase"><strong>Antigo</strong></td>
+<td data-l="Período">Idade Antiga</td>
+<td data-l="Marca principal">Limitação rudimentar</td>
+<td data-l="Marcos">Atenas/Sólon; Doze Tábuas</td>
+<td data-l="Dimensão">—</td>
+</tr>
+<tr>
+<td data-l="Fase"><strong>Medieval</strong></td>
+<td data-l="Período">Séc. V a XV</td>
+<td data-l="Marca principal">Pactos rei × estamentos</td>
+<td data-l="Marcos">Magna Carta (1215)</td>
+<td data-l="Dimensão">Direitos individuais (embrião)</td>
+</tr>
+<tr>
+<td data-l="Fase"><strong>Moderno</strong></td>
+<td data-l="Período">Fim séc. XVIII</td>
+<td data-l="Marca principal">Separação de poderes; CF escrita</td>
+<td data-l="Marcos">EUA (1787), França (1789)</td>
+<td data-l="Dimensão">1ª (liberdade)</td>
+</tr>
+<tr>
+<td data-l="Fase"><strong>Social</strong></td>
+<td data-l="Período">Séc. XX</td>
+<td data-l="Marca principal">Estado social; CF dirigente</td>
+<td data-l="Marcos">México (1917), Weimar (1919)</td>
+<td data-l="Dimensão">2ª (igualdade)</td>
+</tr>
+<tr>
+<td data-l="Fase"><strong>Contemporâneo</strong></td>
+<td data-l="Período">Pós-2ª Guerra</td>
+<td data-l="Marca principal">Força normativa; pós-positivismo</td>
+<td data-l="Marcos">Bonn (1949), Itália (1947), CF/88</td>
+<td data-l="Dimensão">3ª (fraternidade)</td>
+</tr>
+</tbody>
+</table></div>
+<h3>1.3 Marcos históricos: o constitucionalismo inglês</h3>
+<p>O constitucionalismo inglês é o <strong>mais antigo</strong> do mundo ocidental. Ele não tem Constituição escrita em documento único, mas uma sucessão de documentos que foram limitando o rei. Em ordem cronológica:</p>
+<ol>
+<li><strong>Magna Carta (1215)</strong> — imposta pelos barões ao Rei João Sem-Terra. Limites ao rei: sem tributo sem consentimento, julgamento pelos pares, proteção contra prisão arbitrária. <span class="mt-rosa">Não</span> era Constituição moderna — era documento feudal, mas é o embrião da limitação do poder real.</li>
+<li><strong>Petition of Rights (1628)</strong> — Parlamento × Carlos I; vedou tributo sem autorização e prisão sem justa causa (<em>habeas corpus</em> embrionário).</li>
+<li><strong>Habeas Corpus Act (1679)</strong> — regulamentou o <em>habeas corpus</em> como proteção da liberdade individual (influenciou o art. 5º, LXVIII, da CF/88).</li>
+<li><strong>Bill of Rights (1689)</strong> — fruto da Revolução Gloriosa; marco da <span class="mt-amarelo">supremacia do Parlamento</span>.</li>
+<li><strong>Act of Settlement (1701)</strong> — independência dos juízes; embrião da independência do Judiciário.</li>
+</ol>
+<p>O modelo inglês é <strong>não codificado</strong> (não está num documento único), mas <span class="mt-rosa">não é puramente costumeiro</span> — tem atos escritos (Magna Carta, Bill of Rights, Human Rights Act/1998).</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA CLÁSSICA (CESPE/VUNESP).</strong> "Não há constitucionalismo sem Constituição escrita e formal." → <span class="mt-rosa">ERRADO</span>. O modelo inglês prova que existe constitucionalismo com Constituição <span class="mt-amarelo">não codificada</span>.</p></div>
+<h3>1.4 Constitucionalismo americano (1787)</h3>
+<p>A Constituição dos EUA de 1787 é o <strong>marco do constitucionalismo moderno</strong> e trouxe três contribuições — associe cada uma a ela:</p>
+<ol>
+<li><strong>Primeira Constituição escrita e rígida do mundo</strong> — documento único, sintético (7 artigos), vigente até hoje com 27 emendas.</li>
+<li><strong>Federalismo</strong> — modelo de Estado Federal (União × estados-membros), que influenciou o Brasil.</li>
+<li><strong>Separação de poderes e <em>judicial review</em></strong> — em 1803, no caso <strong>Marbury v. Madison</strong>, o juiz John Marshall criou o <span class="mt-amarelo">controle difuso</span> de constitucionalidade.</li>
+</ol>
+<div class="box"><span class="tag"><span class="ic">✦</span>Macete</span><p>Primeira Constituição escrita = <span class="mt-verde">EUA, 1787</span>. Origem do controle difuso = <span class="mt-verde">Marbury v. Madison, 1803</span>.</p></div>
+<h3>1.5 Constitucionalismo francês (1789)</h3>
+<p>Fruto da Revolução Francesa, o modelo francês tem como peça central a <strong>Declaração dos Direitos do Homem e do Cidadão (1789)</strong>, de alcance universal. Dela, decore o <strong>art. 16</strong> — o dispositivo mais citado em prova para o núcleo do constitucionalismo moderno:</p>
+<div class="box lei"><span class="tag"><span class="ic">📜</span>Letra da lei</span><p><em>"Toda sociedade na qual a garantia dos direitos não é assegurada, nem a separação dos poderes determinada, </em><em>não tem Constituição</em><em>."</em></p></div>
+<p>Esse artigo consagra os <span class="mt-amarelo">dois pilares</span> do constitucionalismo moderno: <strong>garantia de direitos</strong> e <strong>separação de poderes</strong>.</p>
+<p>A diferença de ênfase entre os modelos é clássica:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Contribuição americana</th>
+<th>Contribuição francesa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Contribuição americana">Federalismo</td>
+<td data-l="Contribuição francesa">Direitos universais do homem</td>
+</tr>
+<tr>
+<td data-l="Contribuição americana">Constituição escrita e rígida</td>
+<td data-l="Contribuição francesa">Soberania popular/nacional</td>
+</tr>
+<tr>
+<td data-l="Contribuição americana"><em>Judicial review</em> (supremacia da Constituição)</td>
+<td data-l="Contribuição francesa">Supremacia do Parlamento (inicialmente)</td>
+</tr>
+<tr>
+<td data-l="Contribuição americana">Pragmatismo político</td>
+<td data-l="Contribuição francesa">Racionalismo iluminista</td>
+</tr>
+</tbody>
+</table></div>
+<p>Resumindo: o modelo <strong>americano</strong> enfatiza a <span class="mt-amarelo">supremacia da Constituição</span> (Judiciário como guardião); o <strong>francês</strong>, inicialmente, a <span class="mt-amarelo">supremacia do Parlamento</span>.</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>DETALHE QUE CAI.</strong> A <strong>Constituição Polonesa de 3 de maio de 1791</strong> é a <span class="mt-amarelo">primeira Constituição escrita moderna da Europa</span> (2ª do mundo, após os EUA). Primeira da <strong>Europa</strong> → <span class="mt-verde">polonesa</span>; primeira da <strong>França</strong> → <span class="mt-verde">francesa de 1791</span>.</p></div>
+<h3>1.6 Constitucionalismo latino-americano e o modelo brasileiro</h3>
+<p>O constitucionalismo latino-americano passou por três fases:</p>
+<ol>
+<li><strong>Liberal (séc. XIX)</strong> — inspirada em EUA e França (independência, república, federalismo). Ex.: Argentina (1853), Brasil (1891).</li>
+<li><strong>Social (séc. XX)</strong> — incorporação de direitos sociais. O <strong>México (1917)</strong> é a <span class="mt-amarelo">primeira Constituição social do mundo</span> (antes de Weimar, 1919).</li>
+<li><strong>Novo constitucionalismo democrático latino-americano (séc. XXI) ⭐</strong> — Estado Plurinacional, direitos da natureza (<em>Pachamama</em>), participação popular ampliada. Marcos: Equador (2008) e Bolívia (2009).</li>
+</ol>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p>⭐ <strong>TEMA EMERGENTE.</strong> Equador e Bolívia trouxeram o <span class="mt-amarelo">Estado plurinacional</span>. Já caiu em DPE-SC 2025 e DPE-PR 2024. Cuidado: <span class="mt-rosa">não elimina</span> a separação de poderes.</p></div>
+<p>Quanto ao <strong>modelo brasileiro</strong>:</p>
+<p class="numfoco"><span class="nf-num">7</span><span class="nf-cap">Constituições brasileiras (8, contando a EC 1/1969 como nova Carta)</span></p>
+<p>Em ordem cronológica:</p>
+<ol>
+<li><strong>1824</strong> — <span class="mt-rosa">outorgada</span> (D. Pedro I), imperial, semirrígida, poder moderador (4 poderes).</li>
+<li><strong>1891</strong> — <span class="mt-amarelo">promulgada</span>, república, federalismo, presidencialismo, controle difuso.</li>
+<li><strong>1934</strong> — <span class="mt-amarelo">promulgada</span>, influência de Weimar, direitos sociais, voto feminino.</li>
+<li><strong>1937</strong> — <span class="mt-rosa">outorgada</span> (Getúlio), Estado Novo, "Polaca", semântica.</li>
+<li><strong>1946</strong> — <span class="mt-amarelo">promulgada</span>, redemocratização.</li>
+<li><strong>1967</strong> — <span class="mt-rosa">outorgada</span> (regime militar), centralização.</li>
+<li><strong>1988</strong> — <span class="mt-amarelo">promulgada</span>, a <strong>Constituição Cidadã</strong> — vigente.</li>
+</ol>
+<p><em>(A EC 1/1969, para muitos — ex.: José Afonso da Silva —, foi uma nova Constituição outorgada.)</em></p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA FCC.</strong> Decore quem foi <span class="mt-rosa">outorgada</span> (1824, 1937, 1967) e quem foi <span class="mt-amarelo">promulgada</span> (1891, 1934, 1946, 1988). E nunca troque: a <strong>CF/88 é promulgada</strong>.</p></div>
+</div></section></div>
+<div class="parte" id="parte-2" data-parte="Parte 2"><section data-sec="NEOCONSTITUCIONALISMO"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>NEOCONSTITUCIONALISMO</h2>
+<h3>2.1 Conceito e surgimento</h3>
+<p>O <strong>neoconstitucionalismo</strong> (ou constitucionalismo contemporâneo) surge na <span class="mt-amarelo">segunda metade do século XX</span>, <strong>após a 2ª Guerra Mundial</strong>. O motivo é concreto: as atrocidades do nazismo e do fascismo foram cometidas com base em <strong>leis formalmente válidas</strong>. As leis nazistas eram "legais" no ordenamento alemão.</p>
+<p>A conclusão do pós-guerra foi dura: a <span class="mt-amarelo">mera legalidade não basta</span> para proteger direitos — é preciso que a Constituição tenha <strong>força normativa real</strong> e que o Judiciário a faça valer. Marcos de referência:</p>
+<ul>
+<li><strong>Alemanha:</strong> Lei Fundamental de Bonn (1949) + Tribunal Constitucional Federal (1951).</li>
+<li><strong>Itália:</strong> Constituição de 1947 + Corte Constitucional (1956).</li>
+<li><strong>Brasil:</strong> CF/88 + fortalecimento do STF.</li>
+</ul>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA CLÁSSICA (CESPE).</strong> "O neoconstitucionalismo surgiu no início do século XVIII." → <span class="mt-rosa">ERRADO</span>. Surgiu na <span class="mt-amarelo">segunda metade do séc. XX</span>. O séc. XVIII é o constitucionalismo <span class="mt-amarelo">moderno/liberal</span>.</p></div>
+<h3>2.2 Características</h3>
+<p>Estude pelos <strong>três marcos de Luís Roberto Barroso</strong>:</p>
+<p class="numfoco"><span class="nf-num">3</span><span class="nf-cap">marcos de Barroso: histórico · filosófico · teórico</span></p>
+<ul>
+<li><strong>Marco histórico</strong> — reconstitucionalização da Europa no pós-2ª Guerra; no Brasil, a CF/88.</li>
+<li><strong>Marco filosófico</strong> — o <span class="mt-amarelo">pós-positivismo</span>, que <strong>reaproxima Direito e Ética</strong>, atribui normatividade aos princípios e coloca a <strong>dignidade da pessoa humana</strong> no centro.</li>
+<li><strong>Marco teórico</strong> — as transformações práticas resumidas abaixo.</li>
+</ul>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Característica"><strong>Força normativa da Constituição</strong></td>
+<td data-l="Significado">A CF é norma vinculante, diretamente aplicável (não carta de intenções)</td>
+</tr>
+<tr>
+<td data-l="Característica"><strong>Centralidade dos direitos fundamentais</strong></td>
+<td data-l="Significado">Ocupam o centro do ordenamento e condicionam todos os ramos</td>
+</tr>
+<tr>
+<td data-l="Característica"><strong>Expansão da jurisdição constitucional</strong></td>
+<td data-l="Significado">Tribunais constitucionais ganham protagonismo</td>
+</tr>
+<tr>
+<td data-l="Característica"><strong>Constitucionalização do Direito</strong></td>
+<td data-l="Significado">A CF irradia para todos os ramos (civil, penal, trabalhista, administrativo)</td>
+</tr>
+<tr>
+<td data-l="Característica"><strong>Nova interpretação constitucional</strong></td>
+<td data-l="Significado">Princípios, ponderação, proporcionalidade e razoabilidade</td>
+</tr>
+<tr>
+<td data-l="Característica"><strong>Judicialização da política</strong></td>
+<td data-l="Significado">Questões do Legislativo/Executivo passam ao Judiciário</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>DUAS PEGADINHAS.</strong> (1) "No pós-positivismo, o elemento ético é irrelevante." → <span class="mt-rosa">ERRADO</span> (ele <span class="mt-amarelo">reaproxima</span> Direito e Ética). (2) "O neoconstitucionalismo defende interpretação dogmática e formal." → <span class="mt-rosa">ERRADO</span> (defende interpretação <span class="mt-amarelo">aberta e principiológica</span>).</p></div>
+<h3>2.3 Impacto no Brasil pós-CF/88</h3>
+<p>Quatro frentes:</p>
+<ol>
+<li><strong>Constitucionalização do Direito</strong> — os demais ramos passam a ser lidos à luz da CF (função social do contrato, proibição de provas ilícitas, princípios do art. 37). Ex.: reinterpretação do art. 1.723 do CC para reconhecer a união homoafetiva.</li>
+<li><strong>Eficácia horizontal dos direitos fundamentais</strong> — eles valem <strong>também</strong> entre particulares. Aqui mora a distinção que cai:<br>• <strong>Alemanha — caso <em>Lüth</em> (1958):</strong> eficácia horizontal <span class="mt-amarelo">indireta</span> (irradia pelas cláusulas gerais).<br>• <strong>Brasil — RE 201.819:</strong> eficácia horizontal <span class="mt-amarelo">direta</span>.</li>
+<li><strong>Papel do STF</strong> — células-tronco (ADI 3.510), união homoafetiva (ADPF 132 / ADI 4.277), aborto de anencéfalo (ADPF 54), porte de maconha (RE 635.659, 2024, parâmetro de 40g).</li>
+<li><strong>Efetividade dos direitos sociais</strong> — o Judiciário determina prestações (saúde, educação) com base no <strong>mínimo existencial</strong>. Mas o STF apertou os critérios: medicamento <span class="mt-amarelo">não incorporado</span> ao SUS é hoje excepcional, com requisitos cumulativos (<strong>Tema 6 + SV 61</strong>), competência da Justiça Federal quando o custo anual for <strong>≥ 210 salários mínimos</strong> (<strong>Tema 1234</strong>), responsabilidade solidária dos entes (<strong>Tema 793</strong>) e vedação a remédio sem registro na ANVISA (<strong>Tema 500</strong>).</li>
+</ol>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>NÃO INVERTA.</strong> Alemanha (<em>Lüth</em>, 1958) = eficácia <span class="mt-rosa">INDIRETA</span>. Brasil (RE 201.819) = eficácia <span class="mt-rosa">DIRETA</span>. As bancas adoram trocar.</p></div>
+<h3>2.4 Críticas ao neoconstitucionalismo</h3>
+<p>Mais cobrada em provas de nível superior e discursivas. Guarde autor + rótulo:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Crítica</th>
+<th>Autor / Corrente</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Crítica"><strong>Judicialização excessiva da política</strong></td>
+<td data-l="Autor / Corrente">Ran Hirschl ("juristocracia"), Lenio Streck</td>
+</tr>
+<tr>
+<td data-l="Crítica"><strong>Ativismo judicial</strong> ("legislador positivo")</td>
+<td data-l="Autor / Corrente">Diversos</td>
+</tr>
+<tr>
+<td data-l="Crítica"><strong>Insegurança jurídica</strong> (ponderação imprevisível)</td>
+<td data-l="Autor / Corrente">Humberto Ávila</td>
+</tr>
+<tr>
+<td data-l="Crítica"><strong>Déficit democrático</strong> (juízes não eleitos)</td>
+<td data-l="Autor / Corrente">Jeremy Waldron</td>
+</tr>
+<tr>
+<td data-l="Crítica"><strong>"Neoconstitucionalismo à brasileira"</strong> (decisionismo)</td>
+<td data-l="Autor / Corrente">Daniel Sarmento</td>
+</tr>
+<tr>
+<td data-l="Crítica"><strong>Panconstitucionalização</strong></td>
+<td data-l="Autor / Corrente">Lenio Streck</td>
+</tr>
+</tbody>
+</table></div>
+<p>Em provas brasileiras, <strong>Daniel Sarmento</strong> e <strong>Lenio Streck</strong> são os nomes mais citados nesse tema.</p>
+<h3>2.5 Dois conceitos avançados (a banca troca os dois)</h3>
+<ul>
+<li><strong>Constitucionalismo do futuro (José Roberto Dromi)</strong> — projeção (não fase consolidada): as Constituições do porvir devem consolidar o já conquistado, sobretudo direitos de 3ª dimensão. São <strong>7 valores</strong> — macete <span class="mt-verde">V-S-C-C-P-I-U</span>: <strong>V</strong>erdade, <strong>S</strong>olidariedade, <strong>C</strong>onsenso, <strong>C</strong>ontinuidade, <strong>P</strong>articipação, <strong>I</strong>ntegração, <strong>U</strong>niversalização.</li>
+<li><strong>Transconstitucionalismo (Marcelo Neves)</strong> — entrelaçamento entre ordens jurídicas diferentes (estatais, internacionais, locais) por "pontes de transição". Não é fase histórica.</li>
+</ul>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>NÃO CONFUNDA OS AUTORES.</strong> Constitucionalismo <span class="mt-rosa">do futuro</span> = <span class="mt-amarelo">Dromi</span> (7 valores). <span class="mt-rosa">Transconstitucionalismo</span> = <span class="mt-amarelo">Marcelo Neves</span> (entrelaçamento de ordens). <span class="mt-rosa">Neoconstitucionalismo</span> = pós-2ª Guerra (força normativa). São três coisas diferentes.</p></div>
+</div></section></div>
+<div class="parte" id="parte-3" data-parte="Parte 3"><section data-sec="CONCEITO DE CONSTITUIÇÃO — OS SENTIDOS"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>CONCEITO DE CONSTITUIÇÃO — OS SENTIDOS</h2>
+<p class="nota">🔴 Este é o <strong>subtema mais cobrado</strong> do capítulo. A técnica das bancas é <strong>trocar os autores</strong>. Estude cada sentido e fixe pelo macete final.</p>
+<h3>3.1 Sentido sociológico — Ferdinand Lassalle</h3>
+<p>Para Ferdinand Lassalle (<em>"O que é uma Constituição?"</em>, 1862), a Constituição <strong>real</strong> de um país não é o documento escrito, mas a <span class="mt-amarelo">soma dos fatores reais de poder</span> (militar, econômico, político). A Constituição escrita que não corresponde a esses fatores não passa de uma <span class="mt-rosa">"folha de papel"</span>. Em conflito, a real vence a escrita.</p>
+<p class="nota"><strong>Palavras-chave de Lassalle:</strong> "fatores reais de poder", "folha de papel", sentido <strong>sociológico</strong>.</p>
+<h3>3.2 Sentido político — Carl Schmitt</h3>
+<p>Para Carl Schmitt (<em>"Teoria da Constituição"</em>, 1928), a Constituição é uma <span class="mt-amarelo">decisão política fundamental</span> do titular do poder constituinte. Ele distingue:</p>
+<ul>
+<li><strong>Constituição</strong> (C maiúsculo) — as decisões políticas fundamentais (forma de Estado, forma de governo, direitos fundamentais, separação dos Poderes).</li>
+<li><strong>Leis constitucionais</strong> (l minúsculo) — as demais normas do texto, que não são decisões fundamentais (ex.: o art. 242, §2º, sobre o Colégio Pedro II).</li>
+</ul>
+<p>A teoria é o <span class="mt-amarelo">decisionismo</span>: a legitimidade vem da vontade política, não do Direito.</p>
+<p class="nota"><strong>Palavras-chave de Schmitt:</strong> "decisão política fundamental", "decisionismo", sentido <strong>político</strong>.</p>
+<h3>3.3 Sentido jurídico — Hans Kelsen</h3>
+<p>Para Hans Kelsen (<em>"Teoria Pura do Direito"</em>, 1934), a Constituição é <span class="mt-amarelo">norma pura</span>, "puro dever-ser". Dois planos:</p>
+<ul>
+<li><strong>Lógico-jurídico</strong> — a CF se fundamenta na <span class="mt-amarelo">norma hipotética fundamental</span> (<em>Grundnorm</em>), uma norma <strong>pressuposta</strong>, que diz, em essência: "obedeça a Constituição".</li>
+<li><strong>Jurídico-positivo</strong> — a CF é a <strong>norma suprema</strong>, fundamento de validade de todas as demais (a <span class="mt-amarelo">pirâmide normativa</span>).</li>
+</ul>
+<p class="nota"><strong>Palavras-chave de Kelsen:</strong> "norma pura", "Grundnorm", "pirâmide", sentido <strong>jurídico</strong>.</p>
+<h3>3.4 Sentido normativo — Konrad Hesse</h3>
+<p>Konrad Hesse (<em>"A Força Normativa da Constituição"</em>, 1959) é o <strong>contraponto a Lassalle</strong>. A Constituição não reflete passivamente a realidade — ela tem <span class="mt-amarelo">força ativa para transformá-la</span>, uma "vontade de Constituição" (<em>Wille zur Verfassung</em>).</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA CESPE.</strong> "Força normativa da Constituição" = <span class="mt-amarelo">Konrad Hesse</span>, <span class="mt-rosa">não Lassalle</span>. E "buscar a máxima eficácia do texto" é o princípio da <strong>máxima efetividade</strong>, não a força normativa.</p></div>
+<h3>3.5 Sentido culturalista — J. H. Meirelles Teixeira</h3>
+<p>Para J. H. Meirelles Teixeira, a Constituição é um <span class="mt-amarelo">objeto cultural</span>: é condicionada pela cultura total e, ao mesmo tempo, condicionante dela. O ponto-chave: o sentido culturalista <span class="mt-amarelo">congrega os anteriores</span> (sociológico + político + jurídico). Daí o conceito de <strong>"Constituição total"</strong>.</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>CUIDADO — "Constituição total" aparece em dois autores.</strong> Se a questão falar em <span class="mt-amarelo">cultura/produto cultural</span>, é <span class="mt-amarelo">Meirelles Teixeira</span>. Se falar em <span class="mt-amarelo">síntese normativo-sociológica</span> entre Lassalle e Kelsen, é <span class="mt-amarelo">Hermann Heller</span>.</p></div>
+<p class="subhead"><strong>O macete definitivo dos sentidos</strong></p>
+<div class="box"><span class="tag"><span class="ic">✦</span>Macete</span><p><span class="mt-verde">L</span>assalle → socio<strong>L</strong>ógico → "fo<strong>L</strong>ha de papel" → fatores reais de poder<br><span class="mt-verde">S</span>chmitt → <strong>S</strong>entido político → deci<strong>S</strong>ão política → decisionismo<br><span class="mt-verde">K</span>elsen → jurídi<strong>K</strong>o → norma pura → pirâmide / Grundnorm<br><span class="mt-verde">H</span>esse → força normativa → "<strong>H</strong>"esse → vontade de Constituição</p></div>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Sentido</th>
+<th>Autor</th>
+<th>Ideia central</th>
+<th>Palavras-chave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Sentido"><strong>Sociológico</strong></td>
+<td data-l="Autor">Ferdinand Lassalle</td>
+<td data-l="Ideia central">soma dos fatores reais de poder; "folha de papel"</td>
+<td data-l="Palavras-chave">fatores reais, folha de papel</td>
+</tr>
+<tr>
+<td data-l="Sentido"><strong>Político</strong></td>
+<td data-l="Autor">Carl Schmitt</td>
+<td data-l="Ideia central">decisão política fundamental</td>
+<td data-l="Palavras-chave">decisão política, decisionismo</td>
+</tr>
+<tr>
+<td data-l="Sentido"><strong>Jurídico</strong></td>
+<td data-l="Autor">Hans Kelsen</td>
+<td data-l="Ideia central">norma pura, puro dever-ser</td>
+<td data-l="Palavras-chave">Grundnorm, pirâmide</td>
+</tr>
+<tr>
+<td data-l="Sentido"><strong>Normativo</strong></td>
+<td data-l="Autor">Konrad Hesse</td>
+<td data-l="Ideia central">força para alterar a realidade</td>
+<td data-l="Palavras-chave">força normativa, vontade de Constituição</td>
+</tr>
+<tr>
+<td data-l="Sentido"><strong>Culturalista</strong></td>
+<td data-l="Autor">Meirelles Teixeira</td>
+<td data-l="Ideia central">objeto cultural; "Constituição total"</td>
+<td data-l="Palavras-chave">objeto cultural, congrega os demais</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.6 Constituição em sentido formal × material</h3>
+<ul>
+<li><strong>Formal</strong> — é constitucional <span class="mt-amarelo">tudo que está no texto</span> da CF, independentemente do conteúdo (ex.: art. 242, §2º, Colégio Pedro II).</li>
+<li><strong>Material</strong> — é constitucional o que trata de <span class="mt-amarelo">matéria essencialmente constitucional</span> (organização do Estado, dos Poderes, direitos fundamentais), esteja ou não no texto (ex.: Código Eleitoral).</li>
+</ul>
+<p>A <strong>CF/88 adota o critério formal</strong> — e <span class="mt-rosa">não há hierarquia</span> entre normas formal e materialmente constitucionais dentro do texto.</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA.</strong> "Normas materialmente constitucionais prevalecem sobre as apenas formalmente constitucionais dentro da CF." → <span class="mt-rosa">ERRADO</span>. No Brasil <span class="mt-amarelo">não há hierarquia</span> entre normas constitucionais originárias.</p></div>
+</div></section></div>
+<div class="parte" id="parte-4" data-parte="Parte 4"><section data-sec="CLASSIFICAÇÕES DA CONSTITUIÇÃO"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>CLASSIFICAÇÕES DA CONSTITUIÇÃO</h2>
+<p class="nota">🔴 Favorito da <strong>FCC</strong> (e cai muito em CESPE e VUNESP). Domine cada critério e saiba encaixar a CF/88. Fecho com o mnemônico.</p>
+<h3>4.1 Quanto à origem</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Promulgada</strong> (democrática)</td>
+<td data-l="Conceito">Elaborada por representantes eleitos</td>
+<td data-l="Exemplos">CF/88, 1891, 1934, 1946</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Outorgada</strong> (imposta)</td>
+<td data-l="Conceito">Imposta pelo governante, sem participação popular</td>
+<td data-l="Exemplos">1824, 1937, 1967</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Cesarista</strong> (plebiscitária)</td>
+<td data-l="Conceito">Elaborada pelo governante + ratificação popular (geralmente manipulada)</td>
+<td data-l="Exemplos">Napoleão; Pinochet (1980)</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Pactuada</strong></td>
+<td data-l="Conceito">Pacto entre monarca e parlamento/povo</td>
+<td data-l="Exemplos">Magna Carta (1215), parcial</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>Outorgada ≠ cesarista.</strong> Na <span class="mt-amarelo">outorgada</span> há imposição unilateral, <span class="mt-rosa">sem</span> participação popular. Na <span class="mt-amarelo">cesarista</span>, há submissão formal a plebiscito (ainda que manipulado). Ambas são não democráticas.</p></div>
+<h3>4.2 Quanto à forma</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Escrita</strong></td>
+<td data-l="Conceito">Formalizada em documento solene</td>
+<td data-l="Exemplos">CF/88, EUA, Alemanha</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Não escrita</strong> (costumeira)</td>
+<td data-l="Conceito">Costumes, precedentes e leis esparsas, não codificada</td>
+<td data-l="Exemplos">Inglaterra</td>
+</tr>
+</tbody>
+</table></div>
+<p>A inglesa <span class="mt-rosa">não é puramente costumeira</span> — tem partes escritas. O que a torna "não escrita" é não estar <span class="mt-amarelo">codificada em documento único</span>.</p>
+<h3>4.3 Quanto à extensão</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Sintética</strong> (concisa)</td>
+<td data-l="Conceito">Só princípios e normas gerais</td>
+<td data-l="Exemplos">EUA (7 artigos)</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Analítica</strong> (extensa)</td>
+<td data-l="Conceito">Temas detalhados, inclusive não essenciais</td>
+<td data-l="Exemplos">CF/88 (250 artigos)</td>
+</tr>
+</tbody>
+</table></div>
+<p>A <strong>CF/88 é analítica</strong> (trata de Colégio Pedro II, esporte, comunicação social, tributação minuciosa).</p>
+<h3>4.4 Quanto à estabilidade</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Imutável</strong> (granítica)</td>
+<td data-l="Conceito">Não admite alteração</td>
+<td data-l="Exemplos">Modelo teórico</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Super-rígida</strong></td>
+<td data-l="Conceito">Rígida + núcleo imutável</td>
+<td data-l="Exemplos">CF/88, p/ Alexandre de Moraes (minoritário)</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Rígida</strong></td>
+<td data-l="Conceito">Alterável por processo mais difícil que o ordinário</td>
+<td data-l="Exemplos"><strong>CF/88 (majoritária)</strong></td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Semirrígida</strong></td>
+<td data-l="Conceito">Parte rígida + parte flexível</td>
+<td data-l="Exemplos">CF/1824</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Flexível</strong></td>
+<td data-l="Conceito">Mesmo processo das leis ordinárias</td>
+<td data-l="Exemplos">Inglaterra</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>A PEGADINHA MAIS COBRADA.</strong> A CF/88 é <span class="mt-amarelo">rígida</span> (doutrina majoritária). Só é <span class="mt-amarelo">super-rígida</span> para <span class="mt-amarelo">Alexandre de Moraes</span>. Se a questão <span class="mt-rosa">não</span> citar Alexandre de Moraes → marque <span class="mt-rosa">rígida</span>. E "CF/88 é semirrígida por causa das cláusulas pétreas" → <span class="mt-rosa">ERRADO</span>.</p></div>
+<h3>4.5 Quanto ao conteúdo</h3>
+<p>Já visto no item 3.6: <strong>formal</strong> (tudo no texto) × <strong>material</strong> (matéria essencial). A <strong>CF/88 = formal</strong>.</p>
+<h3>4.6 Quanto ao modo de elaboração</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Dogmática</strong></td>
+<td data-l="Conceito">Elaborada de uma só vez, refletindo os dogmas do momento</td>
+<td data-l="Exemplos">CF/88</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Histórica</strong></td>
+<td data-l="Conceito">Formada lentamente, por tradições acumuladas</td>
+<td data-l="Exemplos">Inglaterra</td>
+</tr>
+</tbody>
+</table></div>
+<p>A dogmática é <strong>ortodoxa</strong> (uma só ideologia) ou <strong>eclética</strong> (várias). A <strong>CF/88 é dogmática eclética</strong>.</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA FCC.</strong> "Dogmática = formada ao longo do tempo." → <span class="mt-rosa">ERRADO</span>. Dogmática = <span class="mt-amarelo">de uma vez</span>; histórica = ao longo do tempo.</p></div>
+<h3>4.7 Quanto à finalidade</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Conceito</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Tipo"><strong>Garantia</strong> (negativa/liberal)</td>
+<td data-l="Conceito">Só limita o poder e garante liberdades</td>
+<td data-l="Exemplos">EUA (1787)</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Dirigente</strong> (programática)</td>
+<td data-l="Conceito">Limita <strong>e</strong> traça metas e programas</td>
+<td data-l="Exemplos">CF/88 (arts. 3º, 6º, 170, 196, 205)</td>
+</tr>
+<tr>
+<td data-l="Tipo"><strong>Balanço</strong></td>
+<td data-l="Conceito">Retrata o estágio de um Estado socialista</td>
+<td data-l="Exemplos">URSS</td>
+</tr>
+</tbody>
+</table></div>
+<p>A <strong>CF/88 é dirigente</strong> (cheia de normas programáticas). O conceito de "constituição dirigente" é de Canotilho (1982).</p>
+<h3>4.8 Como classificar a CF/88 — o quadro que cai</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Classificação da CF/88</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Critério">Origem</td>
+<td data-l="Classificação da CF/88"><strong>Promulgada</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Forma</td>
+<td data-l="Classificação da CF/88"><strong>Escrita</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Modo de elaboração</td>
+<td data-l="Classificação da CF/88"><strong>Dogmática</strong> (eclética)</td>
+</tr>
+<tr>
+<td data-l="Critério">Estabilidade</td>
+<td data-l="Classificação da CF/88"><strong>Rígida</strong> (majoritária)</td>
+</tr>
+<tr>
+<td data-l="Critério">Extensão</td>
+<td data-l="Classificação da CF/88"><strong>Analítica</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Conteúdo</td>
+<td data-l="Classificação da CF/88"><strong>Formal</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Finalidade</td>
+<td data-l="Classificação da CF/88"><strong>Dirigente</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Ideologia</td>
+<td data-l="Classificação da CF/88"><strong>Eclética</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Ontológica (Loewenstein)</td>
+<td data-l="Classificação da CF/88"><strong>Normativa</strong></td>
+</tr>
+<tr>
+<td data-l="Critério">Sistemática</td>
+<td data-l="Classificação da CF/88"><strong>Reduzida</strong> (codificada)</td>
+</tr>
+</tbody>
+</table></div>
+<div class="box"><span class="tag"><span class="ic">✦</span>Macete</span><p><strong>PEDRA FoDE</strong> → <span class="mt-verde">P</span>romulgada · <span class="mt-verde">E</span>scrita · <span class="mt-verde">D</span>ogmática · <span class="mt-verde">R</span>ígida · <span class="mt-verde">A</span>nalítica · <span class="mt-verde">Fo</span>rmal · <span class="mt-verde">D</span>irigente · <span class="mt-verde">E</span>clética</p></div>
+<p>A <strong>classificação ontológica de Karl Loewenstein</strong> (relação texto × realidade) também cai:</p>
+<ul>
+<li><strong>Normativa</strong> — a CF rege de fato o processo político e é cumprida (caso da CF/88).</li>
+<li><strong>Nominal</strong> — válida, mas não plenamente cumprida (muitas CFs latino-americanas).</li>
+<li><strong>Semântica</strong> — serve apenas para manter o poder do governante (ex.: CF/1937).</li>
+</ul>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA.</strong> "Constituição semântica = interpretação pelo significado do texto." → <span class="mt-rosa">ERRADO</span>. Para <span class="mt-amarelo">Loewenstein</span>, semântica é a CF que <span class="mt-amarelo">serve ao poder dominante</span>.</p></div>
+</div></section></div>
+<div class="parte" id="parte-5" data-parte="Parte 5"><section data-sec="ESTRUTURA DA CF/88"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>ESTRUTURA DA CF/88</h2>
+<p>A CF/88 tem três blocos: <strong>preâmbulo</strong>, <strong>parte dogmática</strong> e <strong>ADCT</strong> — mais as <strong>emendas</strong> que se incorporam.</p>
+<h3>5.1 Preâmbulo — natureza jurídica e valor normativo</h3>
+<p>A pergunta de prova é sempre a mesma: o preâmbulo <strong>tem força normativa?</strong> A resposta vem da <strong>ADI 2.076/AC (2002)</strong> (o Acre omitiu "sob a proteção de Deus" em sua Constituição). O STF decidiu que o preâmbulo:</p>
+<ul>
+<li>❌ <span class="mt-rosa">NÃO</span> tem força normativa;</li>
+<li>❌ <span class="mt-rosa">NÃO</span> é de reprodução obrigatória nos Estados;</li>
+<li>❌ <span class="mt-rosa">NÃO</span> serve de parâmetro de controle de constitucionalidade;</li>
+<li>❌ <span class="mt-rosa">NÃO</span> cria direitos ou obrigações;</li>
+<li>✅ funciona como <span class="mt-amarelo">diretriz interpretativa</span> (vetor hermenêutico);</li>
+<li>✅ a invocação a Deus <span class="mt-amarelo">não é obrigatória</span> (Estado laico — art. 19, I).</li>
+</ul>
+<p>Ou seja, o STF adotou a <strong>tese da relevância jurídica indireta</strong>. E o preâmbulo <span class="mt-rosa">não pode ser emendado</span> (é obra do poder constituinte originário).</p>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>PEGADINHA FREQUENTÍSSIMA.</strong> "O preâmbulo tem força normativa plena e vincula os Estados." → <span class="mt-rosa">ERRADO</span> (ADI 2.076). "Serve de parâmetro de controle." → <span class="mt-rosa">ERRADO</span>.</p></div>
+<h3>5.2 Parte dogmática — artigos 1º a 250</h3>
+<p>O corpo permanente, em <strong>9 títulos</strong>:</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Título</th>
+<th>Conteúdo</th>
+<th>Artigos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="Título"><strong>I</strong></td>
+<td data-l="Conteúdo">Princípios Fundamentais</td>
+<td data-l="Artigos">1º a 4º</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>II</strong></td>
+<td data-l="Conteúdo">Direitos e Garantias Fundamentais</td>
+<td data-l="Artigos">5º a 17</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>III</strong></td>
+<td data-l="Conteúdo">Organização do Estado</td>
+<td data-l="Artigos">18 a 43</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>IV</strong></td>
+<td data-l="Conteúdo">Organização dos Poderes</td>
+<td data-l="Artigos">44 a 135</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>V</strong></td>
+<td data-l="Conteúdo">Defesa do Estado e das Instituições</td>
+<td data-l="Artigos">136 a 144</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>VI</strong></td>
+<td data-l="Conteúdo">Tributação e Orçamento</td>
+<td data-l="Artigos">145 a 169</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>VII</strong></td>
+<td data-l="Conteúdo">Ordem Econômica e Financeira</td>
+<td data-l="Artigos">170 a 192</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>VIII</strong></td>
+<td data-l="Conteúdo">Ordem Social</td>
+<td data-l="Artigos">193 a 232</td>
+</tr>
+<tr>
+<td data-l="Título"><strong>IX</strong></td>
+<td data-l="Conteúdo">Disposições Constitucionais Gerais</td>
+<td data-l="Artigos">233 a 250</td>
+</tr>
+</tbody>
+</table></div>
+<p>Os Títulos I a IV (arts. 1º a 135) concentram a maior parte das questões; o <span class="mt-amarelo">Título II (Direitos Fundamentais)</span> é, disparado, o mais cobrado.</p>
+<h3>5.3 ADCT</h3>
+<p>O Ato das Disposições Constitucionais Transitórias é o conjunto de normas de <strong>transição</strong> entre 1967/EC 1-1969 e a CF/88:</p>
+<ul>
+<li>Tem <span class="mt-amarelo">natureza constitucional</span> (mesma hierarquia do corpo);</li>
+<li><span class="mt-amarelo">pode ser emendado</span> (várias ECs já o alteraram);</li>
+<li>suas normas tendem a se <strong>exaurir</strong> (eficácia temporal limitada) — quando já produziram todos os efeitos, são de <strong>eficácia exaurida</strong>.</li>
+</ul>
+<div class="box armadilha"><span class="tag"><span class="ic">⚠</span>Para a prova</span><p><strong>DUAS PEGADINHAS.</strong> "O ADCT não tem status constitucional." → <span class="mt-rosa">ERRADO</span>. "O ADCT não pode ser emendado." → <span class="mt-rosa">ERRADO</span> (ex.: as ECs que prorrogaram a DRU no art. 76).</p></div>
+<h3>5.4 Emendas Constitucionais</h3>
+<p>As ECs são alterações formais ao texto, aprovadas pelo <strong>art. 60</strong> (3/5, dois turnos, cada Casa). Uma vez promulgadas, <span class="mt-amarelo">integram o texto</span> com a mesma hierarquia das originárias — <span class="mt-rosa">salvo</span> quando violam cláusula pétrea (aí são inconstitucionais).</p>
+<p>Números para guardar (até maio/2026):</p>
+<p class="numfoco"><span class="nf-num">139</span><span class="nf-cap">Emendas Constitucionais (EC 1/1992 a EC 139/2026)</span></p>
+<p>Há ainda <strong>6 Emendas de Revisão</strong> (ECR 1 a 6, de 1994) e os <strong>tratados de direitos humanos</strong> aprovados pelo rito do art. 5º, §3º (mesmo quórum de EC), que ganham <span class="mt-amarelo">hierarquia constitucional</span> (Convenção sobre Direitos das Pessoas com Deficiência, 2009; Tratado de Marraqueche, 2018).</p>
+</div></section></div>
+<div class="parte" id="parte-6" data-parte="Parte 6"><section data-sec="QUESTÕES REAIS COMENTADAS"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>QUESTÕES REAIS COMENTADAS</h2>
+<p class="nota">Resolva antes de ler o comentário.</p>
+<div class="desafio deck-item" data-frente="Assinale a opção correta sobre constitucionalismo, neoconstitucionalismo e pós-positivismo." data-verso="A. (b) surgiu no séc. XX; (c) modelo inglês; (d) o pós-positivismo reaproxima Direito e Ética; (e) interpretação aberta e principiológica."><span class="dtag">⚖ Questão 1 — CESPE (2024, Pref. de Cuiabá — Procurador) 🔴</span><p class="enun"><em>Assinale a opção correta sobre constitucionalismo, neoconstitucionalismo e pós-positivismo.</em></p><div class="alts" data-gab="a"><button class="alt-d" data-l="a">a) O neoconstitucionalismo está associado à expansão da jurisdição dos tribunais constitucionais.</button><button class="alt-d" data-l="b">b) O neoconstitucionalismo surgiu no início do século XVIII.</button><button class="alt-d" data-l="c">c) Não há constitucionalismo sem constituição escrita e formal.</button><button class="alt-d" data-l="d">d) No pós-positivismo, o elemento ético é irrelevante.</button><button class="alt-d" data-l="e">e) O neoconstitucionalismo defende interpretação dogmática e formal.</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>A. (b) surgiu no séc. XX; (c) modelo inglês; (d) o pós-positivismo reaproxima Direito e Ética; (e) interpretação aberta e principiológica.</strong></p></div></div>
+<div class="desafio deck-item" data-frente="" data-verso="A. (b) Roma ≠ moderno; (c) igualdade formal; (d) moderno = 1ª dimensão."><span class="dtag">⚖ Questão 2 — VUNESP (2024, MPE-RO — Promotor) 🟡</span><p class="enun"><em></em></p><div class="alts" data-gab="a"><button class="alt-d" data-l="a">a) Na Grécia havia regime preocupado em limitar o poder das autoridades.</button><button class="alt-d" data-l="b">b) Em Roma já se percebia constitucionalismo moderno.</button><button class="alt-d" data-l="c">c) O constitucionalismo liberal-burguês garantiu igualdade material aos pobres.</button><button class="alt-d" data-l="d">d) O constitucionalismo moderno se funda em direitos de segunda geração.</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>A. (b) Roma ≠ moderno; (c) igualdade formal; (d) moderno = 1ª dimensão.</strong></p></div></div>
+<div class="desafio deck-item" data-frente="O sociologismo constitucional vê a Constituição como imanência das estruturas sociais do presente, sem se sustentar em norma transcendente." data-verso="CERTO. É o sentido sociológico (Lassalle)."><span class="dtag">⚖ Questão 3 — CESPE (PF, 2025 — Delegado) 🔴</span><p class="enun"><em>O sociologismo constitucional vê a Constituição como imanência das estruturas sociais do presente, sem se sustentar em norma transcendente.</em></p><div class="alts julgue" data-gab="certo"><button class="alt-d" data-l="certo">CERTO</button><button class="alt-d" data-l="errado">ERRADO</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>CERTO. É o sentido sociológico (Lassalle).</strong></p></div></div>
+<div class="desafio deck-item" data-frente="A CF/88: a) é flexível; b) é outorgada; c) é analítica por se limitar a normas gerais; d) é dogmática por sistematizar as ideias da época; e) é de conteúdo material." data-verso="D. (a) rígida; (b) promulgada; (c) analítica é extensa; (e) formal."><span class="dtag">⚖ Questão 4 — FCC (modelo TRT/TRF) — Classificação 🔴</span><p class="enun"><em>A CF/88: a) é flexível; b) é outorgada; c) é analítica por se limitar a normas gerais; d) é dogmática por sistematizar as ideias da época; e) é de conteúdo material.</em></p><details class="gab"><summary>ver gabarito</summary><p>D. (a) rígida; (b) promulgada; (c) analítica é extensa; (e) formal.</p></details></div>
+<div class="desafio deck-item" data-frente="Norma materialmente constitucional prevalece sobre norma apenas formalmente constitucional, ambas no texto da CF?" data-verso="Não — não há hierarquia entre normas constitucionais originárias."><span class="dtag">⚖ Questão 5 — FGV (OAB XLIV, 2025) — Hierarquia 🟡</span><p class="enun"><em>Norma materialmente constitucional prevalece sobre norma apenas formalmente constitucional, ambas no texto da CF?</em></p><details class="gab"><summary>ver gabarito</summary><p>Não — não há hierarquia entre normas constitucionais originárias.</p></details></div>
+<div class="desafio deck-item" data-frente="I — O preâmbulo tem força normativa plena. II — A invocação de Deus não é de reprodução obrigatória." data-verso="Só II. O preâmbulo não tem força normativa (ADI 2.076)."><span class="dtag">⚖ Questão 6 — Consulplan (2025, ARCE) — Preâmbulo 🔴</span><p class="enun"><em>I — O preâmbulo tem força normativa plena. II — A invocação de Deus não é de reprodução obrigatória.</em></p><details class="gab"><summary>ver gabarito</summary><p>Só II. O preâmbulo não tem força normativa (ADI 2.076).</p></details></div>
+<div class="desafio deck-item" data-frente="Outorgadas e cesaristas são &quot;Constituições não democráticas&quot;; nas primeiras há imposição unilateral sem participação popular, nas segundas há submissão formal a aprovação popular (ainda que manipulada)." data-verso="CERTO."><span class="dtag">⚖ Questão 7 — CESPE (TJ-PA, 2025 — Analista) 🔴</span><p class="enun"><em>Outorgadas e cesaristas são "Constituições não democráticas"; nas primeiras há imposição unilateral sem participação popular, nas segundas há submissão formal a aprovação popular (ainda que manipulada).</em></p><div class="alts julgue" data-gab="certo"><button class="alt-d" data-l="certo">CERTO</button><button class="alt-d" data-l="errado">ERRADO</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>CERTO.</strong></p></div></div>
+<div class="desafio deck-item" data-frente="A CF/88 é semirrígida porque só parte dela pode ser modificada, dada a existência de cláusulas pétreas." data-verso="ERRADO. É rígida."><span class="dtag">⚖ Questão 8 — CESPE (FUB, 2025 — Assistente) 🟡</span><p class="enun"><em>A CF/88 é semirrígida porque só parte dela pode ser modificada, dada a existência de cláusulas pétreas.</em></p><div class="alts julgue" data-gab="errado"><button class="alt-d" data-l="certo">CERTO</button><button class="alt-d" data-l="errado">ERRADO</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>ERRADO. É rígida.</strong></p></div></div>
+<div class="desafio deck-item" data-frente="Equador e Bolívia trouxeram o conceito de Estado plurinacional." data-verso="CERTO."><span class="dtag">⚖ Questão 9 — FUNDATEC (DPE-SC, 2025) — Latino-americano ⭐</span><p class="enun"><em>Equador e Bolívia trouxeram o conceito de Estado plurinacional.</em></p><div class="alts julgue" data-gab="certo"><button class="alt-d" data-l="certo">CERTO</button><button class="alt-d" data-l="errado">ERRADO</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>CERTO.</strong></p></div></div>
+<div class="desafio deck-item" data-frente="Qual <strong>não</strong> é valor do constitucionalismo do futuro? a) verdade; b) continuidade; c) supremacia do Parlamento; d) integração; e) universalização." data-verso="C. Os 7 valores: verdade, solidariedade, consenso, continuidade, participação, integração, universalização."><span class="dtag">⚖ Questão 10 — <em>estilo CESPE</em> — Constitucionalismo do futuro (Dromi) 🟢⭐</span><p class="enun"><em>Qual <strong>não</strong> é valor do constitucionalismo do futuro? a) verdade; b) continuidade; c) supremacia do Parlamento; d) integração; e) universalização.</em></p><details class="gab"><summary>ver gabarito</summary><p>C. Os 7 valores: verdade, solidariedade, consenso, continuidade, participação, integração, universalização.</p></details></div>
+<div class="desafio deck-item" data-frente="No caso <em>Lüth</em> (1958) o tribunal alemão reconheceu a eficácia horizontal <strong>direta</strong>, depois adotada pelo STF no RE 201.819." data-verso="ERRADO. Lüth = indireta; Brasil (RE 201.819) = direta."><span class="dtag">⚖ Questão 11 — <em>estilo CESPE</em> — Eficácia horizontal (Lüth) 🟡</span><p class="enun"><em>No caso <em>Lüth</em> (1958) o tribunal alemão reconheceu a eficácia horizontal <strong>direta</strong>, depois adotada pelo STF no RE 201.819.</em></p><div class="alts julgue" data-gab="errado"><button class="alt-d" data-l="certo">CERTO</button><button class="alt-d" data-l="errado">ERRADO</button></div><p class="dfb"></p><div class="gab-corpo"><p><strong>ERRADO. <em>Lüth</em> = indireta; Brasil (RE 201.819) = direta.</strong></p></div></div>
+</div></section></div>
+<div class="parte" id="parte-7" data-parte="Parte 7"><section data-sec="MAPA DE PEGADINHAS POR BANCA"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>MAPA DE PEGADINHAS POR BANCA</h2>
+<h3>🎯 CESPE/CEBRASPE</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>A banca diz...</th>
+<th>A resposta é...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="A banca diz...">"Neoconstitucionalismo surgiu no séc. XVIII"</td>
+<td data-l="A resposta é...">ERRADO — séc. XX</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Não há constitucionalismo sem CF escrita"</td>
+<td data-l="A resposta é...">ERRADO — modelo inglês</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Força normativa = Lassalle"</td>
+<td data-l="A resposta é...">ERRADO — Konrad Hesse</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Kelsen = fatores reais de poder"</td>
+<td data-l="A resposta é...">ERRADO — Lassalle</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Sociológico = decisão política fundamental"</td>
+<td data-l="A resposta é...">ERRADO — Schmitt (político)</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"CF/88 é outorgada"</td>
+<td data-l="A resposta é...">ERRADO — promulgada</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Preâmbulo tem força normativa"</td>
+<td data-l="A resposta é...">ERRADO — ADI 2.076</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"CF semântica = interpretação pelo significado"</td>
+<td data-l="A resposta é...">ERRADO — Loewenstein: serve ao poder</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Pós-positivismo separa Direito e Ética"</td>
+<td data-l="A resposta é...">ERRADO — reaproxima</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"CF/88 é semirrígida"</td>
+<td data-l="A resposta é...">ERRADO — é rígida</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Aristóteles propôs a separação de poderes"</td>
+<td data-l="A resposta é...">ERRADO — só identificou as funções (Montesquieu propôs)</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Lüth = direta / RE 201.819 = indireta"</td>
+<td data-l="A resposta é...">ERRADO — invertido</td>
+</tr>
+</tbody>
+</table></div>
+<h3>🎯 FCC</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>A banca diz...</th>
+<th>A resposta é...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="A banca diz...">Troca "promulgada" por "outorgada"</td>
+<td data-l="A resposta é...">CF/88 = promulgada</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">Troca "analítica" por "sintética"</td>
+<td data-l="A resposta é...">CF/88 = analítica</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">Troca "rígida" por "flexível"</td>
+<td data-l="A resposta é...">CF/88 = rígida</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Dogmática = formada ao longo do tempo"</td>
+<td data-l="A resposta é...">ERRADO — dogmática = de uma vez</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Dirigente = apenas limita o poder"</td>
+<td data-l="A resposta é...">ERRADO — dirigente = metas + programas</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"CF/88 é ortodoxa"</td>
+<td data-l="A resposta é...">ERRADO — é eclética</td>
+</tr>
+</tbody>
+</table></div>
+<h3>🎯 FGV</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>A banca diz...</th>
+<th>A resposta é...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="A banca diz...">Hierarquia entre normas materiais e formais</td>
+<td data-l="A resposta é...">NÃO existe entre originárias</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">Troca Schmitt ↔ Kelsen</td>
+<td data-l="A resposta é...">Schmitt = político; Kelsen = jurídico</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Neoconstitucionalismo = liberal"</td>
+<td data-l="A resposta é...">Neo = pós-2ª Guerra; liberal = séc. XVIII</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Transconstitucionalismo = constitucionalismo do futuro"</td>
+<td data-l="A resposta é...">NÃO — Marcelo Neves × Dromi</td>
+</tr>
+</tbody>
+</table></div>
+<h3>🎯 VUNESP</h3>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>A banca diz...</th>
+<th>A resposta é...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-l="A banca diz...">"Roma = constitucionalismo moderno"</td>
+<td data-l="A resposta é...">ERRADO — Roma ≠ moderno</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Liberal = garantias materiais aos pobres"</td>
+<td data-l="A resposta é...">ERRADO — igualdade formal</td>
+</tr>
+<tr>
+<td data-l="A banca diz...">"Moderno = 2ª geração"</td>
+<td data-l="A resposta é...">ERRADO — moderno = 1ª geração</td>
+</tr>
+</tbody>
+</table></div>
+</div></section></div>
+<div class="parte" id="parte-8" data-parte="Parte 8"><section data-sec="CHECKLIST DE REVISÃO — AULA 1"><div class="wrap"><span class="eyebrow">Aula 1 · Constitucional</span><h2>CHECKLIST DE REVISÃO — AULA 1</h2>
+<ul>
+<li>[ ] Constitucionalismo = <strong>limitar o poder</strong> + garantir direitos + supremacia da Constituição.</li>
+<li>[ ] Domino as <strong>fases</strong> (antigo, medieval/Magna Carta, moderno, social, contemporâneo, frentes do séc. XXI).</li>
+<li>[ ] Diferencio <strong>Aristóteles</strong> (identificou funções) de <strong>Montesquieu</strong> (propôs a separação).</li>
+<li>[ ] Conheço os marcos ingleses em ordem (Magna Carta → Act of Settlement).</li>
+<li>[ ] Sei que <strong>EUA (1787)</strong> é a 1ª escrita/rígida e que o controle difuso vem de <strong>Marbury v. Madison (1803)</strong>.</li>
+<li>[ ] Decorei o <strong>art. 16</strong> da Declaração Francesa (1789).</li>
+<li>[ ] Sei classificar as <strong>7/8 Constituições brasileiras</strong> (outorgadas × promulgadas).</li>
+<li>[ ] Domino conceito, <strong>3 marcos de Barroso</strong> e características do <strong>neoconstitucionalismo</strong>.</li>
+<li>[ ] Distingo eficácia horizontal <strong>indireta</strong> (Lüth) da <strong>direta</strong> (RE 201.819).</li>
+<li>[ ] Conheço as <strong>críticas</strong> (Sarmento, Streck, Ávila, Hirschl, Waldron).</li>
+<li>[ ] Não confundo <strong>Dromi</strong> (futuro, 7 valores) com <strong>Marcelo Neves</strong> (transconstitucionalismo).</li>
+<li>[ ] Decorei os <strong>sentidos</strong> (Lassalle, Schmitt, Kelsen, Hesse, Meirelles Teixeira).</li>
+<li>[ ] Distingo Constituição <strong>formal × material</strong>.</li>
+<li>[ ] Sei classificar a <strong>CF/88</strong> em todos os critérios (<strong>PEDRA FoDE</strong> + ontológica).</li>
+<li>[ ] Sei que o <strong>preâmbulo não tem força normativa</strong> (ADI 2.076).</li>
+<li>[ ] Conheço a estrutura: <strong>preâmbulo + parte dogmática (9 títulos) + ADCT + ECs</strong>.</li>
+<li>[ ] Resolvi as 11 questões e revisei o mapa de pegadinhas.</li>
+</ul>
+<p class="nota"><strong>Aula 1 — versão de teste 2.0 (jun/2026).</strong> Material derivado do Pilar 1 (fonte técnica) e do Capítulo 1 narrativo. Em divergência de precisão jurídica, prevalece o pilar técnico.</p>
+</div></section></div>
+</main></div>
+<div id="deck"></div>
+
+<div id="controles2">
+  <button id="ant">‹ Anterior</button>
+  <span id="contador">1 / 1</span>
+  <button id="prox">Próximo ›</button>
+</div>
+
+<script>
+(function(){
+  var source=document.getElementById('source');
+  var deck=document.getElementById('deck');
+
+  // 1) achata os blocos de conteúdo (filhos de .wrap, ignorando containers)
+  var crus=[].slice.call(source.querySelectorAll('.wrap > *'));
+  var blocos=crus.filter(function(el){
+    return !el.classList.contains('parte') && el.tagName!=='SECTION' && !el.querySelector('.wrap');
+  });
+  if(!blocos.length){ blocos=[].slice.call(source.children); }
+
+  // 2) agrupa em slides: novo slide em h1/h2/h3/.eyebrow (runs consecutivos juntos)
+  function ehQuebra(el){
+    return /^H[123]$/.test(el.tagName) || el.classList.contains('eyebrow');
+  }
+  var slides=[], atual=null, quebrouAntes=false;
+  blocos.forEach(function(el){
+    if(ehQuebra(el)){
+      if(!quebrouAntes||atual===null){
+        atual=document.createElement('section');atual.className='slide';
+        var inner=document.createElement('div');inner.className='inner';
+        atual.appendChild(inner);slides.push(atual);deck.appendChild(atual);
+      }
+      quebrouAntes=true;
+    } else { quebrouAntes=false; if(atual===null){
+      atual=document.createElement('section');atual.className='slide';
+      var inr=document.createElement('div');inr.className='inner';
+      atual.appendChild(inr);slides.push(atual);deck.appendChild(atual);
+    }}
+    atual.querySelector('.inner').appendChild(el);
+  });
+
+  // 3) navegação
+  var idx=0;
+  var prog=document.getElementById('prog');
+  var contador=document.getElementById('contador');
+  function mostra(i){
+    idx=Math.max(0,Math.min(slides.length-1,i));
+    slides.forEach(function(s,j){ s.classList.toggle('active',j===idx); });
+    slides[idx].scrollTop=0;
+    prog.style.width=((idx+1)/slides.length*100)+'%';
+    contador.textContent=(idx+1)+' / '+slides.length;
+  }
+  document.getElementById('prox').onclick=function(){mostra(idx+1)};
+  document.getElementById('ant').onclick=function(){mostra(idx-1)};
+  document.getElementById('setaDir').onclick=function(){mostra(idx+1)};
+  document.getElementById('setaEsq').onclick=function(){mostra(idx-1)};
+  addEventListener('keydown',function(e){
+    if(e.code==='ArrowRight'||e.code==='Space'||e.code==='PageDown'){e.preventDefault();mostra(idx+1);}
+    else if(e.code==='ArrowLeft'||e.code==='PageUp'){e.preventDefault();mostra(idx-1);}
+    else if(e.code==='Home'){mostra(0);}
+    else if(e.code==='End'){mostra(slides.length-1);}
+  });
+  // swipe (toque)
+  var x0=null;
+  addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>60){ mostra(idx+(dx<0?1:-1)); } x0=null;
+  },{passive:true});
+
+  mostra(0);
+})();
+</script>
+
+</body>
+</html>
