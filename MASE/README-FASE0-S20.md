@@ -4,100 +4,83 @@
 
 ---
 
-## 🪜 Passo a Passo
-
-### 1. Instalar o Termux (versão correta)
-
-⚠️ **A versão da Play Store está abandonada.** Use a do F-Droid:
-
-```
-1. Abra o navegador do S20
-2. Vá em: https://f-droid.org/packages/com.termux/
-3. Baixe o APK e instale
-4. Abra o Termux
-```
-
-### 2. Configurar o Termux
-
-No Termux, digite:
+## 🚀 Instalação Simplificada (1 comando)
 
 ```bash
-# Atualizar pacotes
-pkg update && pkg upgrade -y
+# 1. Instale o Termux do F-Droid: https://f-droid.org/packages/com.termux/
+#    ⚠️ NÃO use a versão da Play Store (está abandonada)
+#
+# 2. Abra o Termux e cole este comando:
 
-# Instalar dependências
-pkg install -y python python-pip git wget curl proot
+curl -sL https://raw.githubusercontent.com/Gustpbbr/Teste-ChatGPT/organizacao-autoclaw/MASE/setup.sh | bash
 
-# Dar permissão de armazenamento (pra acessar arquivos do celular)
-termux-setup-storage
-# (vai aparecer pop-up — permitir)
+# 3. Aguarde ~15 minutos (download do modelo)
+# 4. Pronto! Para iniciar o Gus:
+
+cd ~/gus-local && bash iniciar.sh
 ```
 
-### 3. Instalar Ollama
+O instalador detecta automaticamente quanta RAM seu S20 tem e escolhe o modelo ideal:
+- **8+ GB RAM:** Gemma 4B (2.5 GB — qualidade alta)
+- **< 8 GB RAM:** Gemma 1B (815 MB — mais rápido)
+
+---
+
+## 🧪 Depois de instalado
 
 ```bash
-# Baixar e instalar Ollama (ARM64, compatível com S20)
-curl -fsSL https://ollama.com/install.sh | sh
+# Iniciar chat com o Gus
+cd ~/gus-local && bash iniciar.sh
 
-# Iniciar o servidor (em background)
-ollama serve &
-# Aguarda ~5s pra iniciar
-sleep 5
-```
+# Teste rápido
+ollama run gemma3:4b "Olá Gus, como você está?"
 
-### 4. Baixar o modelo
-
-```bash
-# Com 8+ GB RAM livre:
-ollama pull gemma3:4b    # ~2.5 GB — melhor qualidade
-
-# Se estiver com pouca RAM:
-# ollama pull gemma3:1b  # ~815 MB — mais rápido, menos capaz
-```
-
-### 5. Instalar Python e lib do Ollama
-
-```bash
-pip install ollama requests
-```
-
-### 6. Copiar o script
-
-```bash
-# Criar pasta do projeto
-mkdir -p ~/gus-local && cd ~/gus-local
-
-# Baixar o script da Fase 0
-curl -O https://raw.githubusercontent.com/Gustpbbr/Teste-ChatGPT/organizacao-autoclaw/MASE/fase0_gus_local.py
-
-# OU copie manualmente do computador pro celular
-# (pasta Downloads do celular → acessível em ~/storage/downloads/)
-```
-
-### 7. Rodar
-
-```bash
-python3 fase0_gus_local.py
+# Ver modelos instalados
+ollama list
 ```
 
 ---
 
-## 🔧 Se o Ollama não instalar via script oficial
+## 🔧 Instalação Manual (se o script automático falhar)
 
-Alternativa com `proot-distro` (Ubuntu dentro do Termux):
+### 1. Configurar o Termux
+
+```bash
+pkg update && pkg upgrade -y
+pkg install -y python python-pip git wget curl proot
+termux-setup-storage  # permitir acesso aos arquivos
+```
+
+### 2. Instalar Ollama
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve &  # iniciar em background
+sleep 5
+```
+
+### 3. Baixar o modelo e o script
+
+```bash
+ollama pull gemma3:4b  # ou gemma3:1b se pouca RAM
+pip install ollama requests
+mkdir -p ~/gus-local && cd ~/gus-local
+curl -O https://raw.githubusercontent.com/Gustpbbr/Teste-ChatGPT/organizacao-autoclaw/MASE/setup.sh
+# Extraia o script gus_chat.py manualmente do setup.sh
+```
+
+### 4. Alternativa: proot-distro (Ubuntu)
 
 ```bash
 pkg install proot-distro -y
 proot-distro install ubuntu
 proot-distro login ubuntu
-
-# Dentro do Ubuntu no Termux:
+# Dentro do Ubuntu:
 apt update && apt install -y curl python3 python3-pip
 curl -fsSL https://ollama.com/install.sh | sh
-ollama serve &
-ollama pull gemma3:4b
+ollama serve & && ollama pull gemma3:4b
 pip install ollama requests
-python3 fase0_gus_local.py
+# Copie e execute gus_chat.py
 ```
 
 ---
