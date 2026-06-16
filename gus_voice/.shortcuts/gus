@@ -1,0 +1,15 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Gus — Widget de atalho para tela inicial
+# Requer: Termux:Widget (F-Droid)
+# Coloque este arquivo em ~/.shortcuts/ e adicione o widget à tela inicial
+
+cd ~/gus-local 2>/dev/null || cd ~
+
+# Inicia Ollama se não estiver rodando
+if ! pgrep ollama > /dev/null; then
+    ollama serve &
+    sleep 3
+fi
+
+# Inicia o servidor PWA
+python3 gus_pwa.py
