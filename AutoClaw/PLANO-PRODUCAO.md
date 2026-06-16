@@ -42,15 +42,15 @@
 
 ---
 
-## 📅 Etapa 4 — MGE/CEX como APIs ⏳ Pendente
+## 📅 Etapa 4 — MGE/CEX como APIs ✅ CONCLUÍDA
 
 | Item | Detalhe |
 |------|---------|
-| **O que é** | Conversão dos HTML standalone para FastAPI |
+| **O que é** | FastAPI substituindo HTML standalone |
 | **Stack** | Python FastAPI + Anthropic API |
-| **Output** | APIs REST documentadas |
-| **Dependência** | API key Anthropic |
-| **Status** | ⏳ A fazer |
+| **Output** | `/mge/generate` (10 agentes) + `/cex/review` (6 dimensões) |
+| **Arquivos** | `mge_cex_api/server.py`, `test_client.py` |
+| **Status** | ✅ Funcional. `uvicorn server:app --port 8765` |
 
 ---
 
@@ -68,8 +68,8 @@
 ## 📊 Progresso
 
 ```
-[✅ 1] ── [✅ 2] ── [⏳ 3] ── [⏳ 4] ── [⏳ 5]
- 40%      40%      0%       0%       0%
+[✅ 1] ── [✅ 2] ── [⏳ 3] ── [✅ 4] ── [⏳ 5]
+ 60%      60%      0%       60%      0%
 
 Próxima: Etapa 3 — MASE Fase 1 (Voz→LED)
 ```
