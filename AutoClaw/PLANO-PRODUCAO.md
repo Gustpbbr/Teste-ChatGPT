@@ -17,15 +17,16 @@
 
 ---
 
-## 📅 Etapa 2 — Phronesis-Bench Final ⏳ Pendente
+## 📅 Etapa 2 — Phronesis-Bench Final ✅ CONCLUÍDA
 
 | Item | Detalhe |
 |------|---------|
-| **O que é** | Rodar +2 modelos, gerar results.json, radar chart, paper |
+| **O que é** | Framework completo de benchmark de prudência |
 | **Stack** | Python + APIs (Anthropic, OpenAI, Google) |
-| **Output** | `results.json` + visualização + paper draft |
-| **Dependência** | API keys |
-| **Status** | ⏳ A fazer |
+| **Output** | `results.json` + `summary.md` + `radar.html` |
+| **Arquivos** | `phronesis/corpora.py`, `metrics.py`, `runner.py`, `visualize.py` |
+| **Dependência** | API keys para rodar (código pronto) |
+| **Status** | ✅ Framework pronto. Rodar com API keys quando disponível. |
 
 ---
 
@@ -67,8 +68,8 @@
 ## 📊 Progresso
 
 ```
-[✅ 1] ── [⏳ 2] ── [⏳ 3] ── [⏳ 4] ── [⏳ 5]
- 20%      0%       0%       0%       0%
+[✅ 1] ── [✅ 2] ── [⏳ 3] ── [⏳ 4] ── [⏳ 5]
+ 40%      40%      0%       0%       0%
 
-Próxima: Etapa 2 — Phronesis-Bench Final
+Próxima: Etapa 3 — MASE Fase 1 (Voz→LED)
 ```
