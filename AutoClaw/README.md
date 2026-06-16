@@ -12,6 +12,11 @@
 - Quer o histórico de como tudo evoluiu? → `02-linha-do-tempo.md`
 - Quer o inventário completo de TODOS os arquivos? → `03-inventario-completo.md`
 - Quer a análise do AutoClaw? → `04-analise-autoclaw.md`
+- Quer a arqueologia do conceito de AGI? → `05-arqueologia-conceitual.md`
+- Quer o roadmap do MASE (hardware)? → `06-roadmap-mase.md`
+- Quer análise de equipes e IA? → `07-analise-equipes.md`
+- Quer as capacidades do AutoClaw? → `08-autoclaw-capacidades.md`
+- Quer o código do protótipo? → `../MASE/`
 
 ---
 
@@ -24,6 +29,10 @@ AutoClaw/
 ├── 📄 02-linha-do-tempo.md        ← Evolução TEAR→TER→Gus→Phronesis
 ├── 📄 03-inventario-completo.md   ← Todo arquivo em todo lugar
 ├── 📄 04-analise-autoclaw.md      ← Análise crítica e recomendações
+├── 📄 05-arqueologia-conceitual.md ← AGI como conselho → Personal AGI
+├── 📄 06-roadmap-mase.md          ← Prototipagem Fase 0→4
+├── 📄 07-analise-equipes.md       ← Times + substituição por IA
+├── 📄 08-autoclaw-capacidades.md  ← O que este assistente faz
 │
 ├── 📁 material-fonte/             ← Chats brutos e material original
 │   ├── tear/

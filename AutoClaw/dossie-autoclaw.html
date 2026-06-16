@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>🦾 AutoClaw — Dossiê Completo (Junho 2026)</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f0f0f;color:#d0d0d0;max-width:900px;margin:0 auto;padding:20px;line-height:1.7}
+h1{color:#c4b5fd;border-bottom:2px solid #7c3aed;padding-bottom:10px}
+h2{color:#a78bfa;margin-top:40px;border-bottom:1px solid #333;padding-bottom:6px}
+h3{color:#ddd;margin-top:30px}
+code{background:#1a1a1a;padding:2px 6px;border-radius:4px;font-size:13px;color:#e0d0ff}
+pre{background:#1a1a1a;padding:14px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.4;border:1px solid #2a2a2a}
+table{border-collapse:collapse;width:100%;margin:16px 0}
+th{background:#2d2254;color:#e0d0ff;padding:10px;text-align:left;font-weight:600}
+td{padding:8px 10px;border-bottom:1px solid #2a2a2a}
+tr:hover{background:#151515}
+.green{color:#4ade80}.yellow{color:#fbbf24}.red{color:#f87171}.cyan{color:#67e8f9}
+.section{border-left:3px solid #7c3aed;padding-left:16px;margin:20px 0}
+hr{border:0;border-top:1px solid #2a2a2a;margin:30px 0}
+.block{background:#151520;border:1px solid #2a2a2a;border-radius:8px;padding:20px;margin:16px 0}
+</style>
+</head>
+<body>
+
+<h1>🦾 Projeto Gus Encarnado — Dossiê Completo</h1>
+<p><strong>Gerado por AutoClaw (Claude) | 16–17 Junho 2026</strong></p>
+<p>Este documento reúne todas as análises, descobertas, roadmaps e código gerados durante a conversa entre Gustavo Pratti de Barros e seu assistente AutoClaw. Serve como referência consolidada do estado atual do ecossistema Gus e do plano de prototipagem do MASE.</p>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>📊 1. Visão Geral do Ecossistema</h2>
+<div class="block">
+
+<h3>O que é o Gus?</h3>
+<p>Um <strong>organismo cognitivo pessoal</strong> com 3 camadas:</p>
+<ul>
+<li><strong>Corpo (VR/WebXR):</strong> Three.js, interface espacial, hand tracking</li>
+<li><strong>Alma (Hub Qdrant):</strong> Memória persistente, schema gus-18, curador híbrido</li>
+<li><strong>Sentidos (ACEE/gus_sense):</strong> Sensores wearable, gateway, interocepção</li>
+</ul>
+
+<h3>Tese central</h3>
+<p>"<strong>Memória é o centro; o modelo é descartável.</strong>" A identidade do Gus vive no grafo de memória (Qdrant), não no LLM. Isso permite trocar de modelo sem perder identidade — uma arquitetura que antecipou tendências de 2026 (Letta, Mem0, Zep).</p>
+
+<h3>Princípios</h3>
+<ul>
+<li>Degradação em camadas (falha parcial > falha total)</li>
+<li>Anti-memória-lixão (curadoria, staging, maturidade)</li>
+<li>Local-first para dados sensíveis (LGPD/GDPR)</li>
+<li>Fail-closed: na dúvida, não faz</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>📋 2. Inventário: O Que Roda e o Que é Spec</h2>
+
+<h3>🟢 Funcional / Em Produção (7 sistemas)</h3>
+<table>
+<tr><th>Projeto</th><th>Stack</th><th>Evidência</th></tr>
+<tr><td><strong>Gus (bot)</strong></td><td>Python, Railway, Qdrant</td><td>24/7, 21 tools, ~163 testes</td></tr>
+<tr><td><strong>Gus Encarnado (Blocos 0+1)</strong></td><td>Python 3.11</td><td>~59 testes verdes</td></tr>
+<tr><td><strong>Phronesis-Bench v1</strong></td><td>FastAPI</td><td>Corpora A–D, métricas</td></tr>
+<tr><td><strong>Phronesis-Bench v2</strong></td><td>HTML/JS</td><td>8 motores, Claude vs GPT-4o</td></tr>
+<tr><td><strong>MGE v2.1</strong></td><td>HTML/JS</td><td>10 agentes, transplante estrutural</td></tr>
+<tr><td><strong>CEX v1.1</strong></td><td>HTML/JS</td><td>11 etapas, cross-examination</td></tr>
+<tr><td><strong>CEP v3.9</strong></td><td>n8n, JS</td><td>21 nós, código auditado</td></tr>
+</table>
+
+<h3>🟡 Scaffold (3 blocos)</h3>
+<table>
+<tr><th>Projeto</th><th>Status</th><th>Falta</th></tr>
+<tr><td>Gus VR (NeuroGus)</td><td>Three.js com mock</td><td>Headset, Hub real</td></tr>
+<tr><td>Blocos 2–3 (leitura/escrita VR)</td><td>Router fail-closed</td><td>Ligar Hub real, hand tracking</td></tr>
+<tr><td>Bloco 5 (proatividade)</td><td>Núcleo testável</td><td>Render espacial VR</td></tr>
+</table>
+
+<h3>📄 Spec Pura (5 projetos)</h3>
+<table>
+<tr><th>Projeto</th><th>Tipo</th><th>Volume</th></tr>
+<tr><td>ACEE</td><td>IA afetiva embarcada</td><td>46 MDs, 9 ILs, CMA→NCAC→MOR</td></tr>
+<tr><td>MASE</td><td>Sistema efetor ambiental</td><td>3 ODTs + pasta Dispositivo (17 módulos)</td></tr>
+<tr><td>TER KAI</td><td>Middleware de governança</td><td>7 módulos, rascunho patente</td></tr>
+<tr><td>TER</td><td>Framework filosófico</td><td>3 camadas, chats densos</td></tr>
+<tr><td>MGX/Axon/MEX</td><td>Orquestração/automação</td><td>Conceitual</td></tr>
+</table>
+
+<p><strong>Total:</strong> ~222 testes, 7 sistemas funcionais, 3 scaffolds, 5 specs.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>🧭 3. Priorização Recomendada</h2>
+<div class="block">
+
+<h3>🥇 Fase 1 — Agora (credibilidade externa)</h3>
+<ol>
+<li><strong>Phronesis-Bench:</strong> rodar Gemini/Llama/Mistral, publicar paper</li>
+<li><strong>TER versão limpa (2–3pp):</strong> extrair essência sem "AGI", "consciência"</li>
+<li><strong>Gus docs:</strong> diagrama de arquitetura, README de deploy</li>
+</ol>
+
+<h3>🥈 Fase 2 — Expansão (1–3 meses)</h3>
+<ol start="4">
+<li><strong>ACEE MVP (1 IL):</strong> voz → emoção → resposta</li>
+<li><strong>Fundir MGX+Axon+MEX no roadmap do Gus</strong></li>
+<li><strong>TER KAI:</strong> decidir patente vs white paper</li>
+</ol>
+
+<h3>🥉 Fase 3 — Aprofundamento (3–6 meses)</h3>
+<ol start="7">
+<li><strong>Gus VR:</strong> ligar Blocos 2–3 no Hub real</li>
+<li><strong>MASE:</strong> protótipo físico (Fases 1–3)</li>
+<li><strong>ACEE completo:</strong> só se MVP validado</li>
+</ol>
+</div>
+
+<!-- ============================================================ -->
+<h2>🏠 4. MASE — O Dispositivo</h2>
+<div class="block">
+
+<h3>O que é</h3>
+<p>Dispositivo multissensorial cilíndrico (~30cm altura) que serve como <strong>casa física do Gus</strong>. Integra projeção de imagem em névoa, áudio direcional, sistema olfativo (chips termoativos), câmera com tracking, plataforma giratória, sensores e IA embarcada. Governado por uma IA afetiva local (ACEE → Gus → MASE).</p>
+
+<h3>Módulos do Dispositivo</h3>
+<table>
+<tr><th>#</th><th>Módulo</th><th>Estado</th></tr>
+<tr><td>1</td><td>Estrutura física externa + LEDs</td><td class="green">✅ Completo</td></tr>
+<tr><td>4</td><td>Projeção de imagem (DLP/laser/LCoS)</td><td class="green">✅ Completo</td></tr>
+<tr><td>7</td><td>Som direcional inteligente</td><td class="green">✅ Completo</td></tr>
+<tr><td>15</td><td>Aromas difusos (chip termoativo)</td><td class="green">✅ Completo</td></tr>
+<tr><td>2,3,5,6,8–14,16,17</td><td>Demais módulos</td><td class="yellow">📄 Pendente (ODT)</td></tr>
+</table>
+
+<h3>Pipeline Completo</h3>
+<pre>
+ACEE (sentidos)  →  Gus (mente)  →  MASE (casa/corpo físico)
+ILs: voz, face,     Bot Telegram,    Luz, som, aroma,
+pupila, fisio,      Hub Qdrant,      temperatura, IoT,
+postura, tato       dispatcher,      Matter/Zigbee,
+                    curador, LLM     atuadores físicos
+</pre>
+
+<h3>MASE.odt, MASEx.odt, MASEXX.odt</h3>
+<p>3 ODTs na Pasta 1 do Google Drive. São chats ChatGPT sobre:</p>
+<ul>
+<li><strong>MASE.odt (296K chars):</strong> Matriz de comparação ACEE vs Dispositivo</li>
+<li><strong>MASEx.odt (1.1M chars):</strong> Revisão técnica ultra-formal, padrão jurídico-industrial</li>
+<li><strong>MASEXX.odt (98K chars):</strong> Arquitetura do projetor + patenteabilidade</li>
+</ul>
+<p>Pasta <strong>Dispositivo</strong> (irmã do MASE) contém specs de 17 módulos em ODT/DOCX/MD.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>📱 5. Roadmap de Prototipagem — do Zero ao MASE</h2>
+<div class="block">
+
+<table>
+<tr><th>Fase</th><th>Nome</th><th>Custo</th><th>Tempo</th><th>Hardware</th></tr>
+<tr><td class="green">0</td><td>Prova de Software</td><td>R$ 0</td><td>1–2 sem</td><td>Celular/laptop existente</td></tr>
+<tr><td class="green">1</td><td>1 Sensor + 1 Atuador</td><td>R$ 200–400</td><td>2–4 sem</td><td>Arduino + LED + microfone</td></tr>
+<tr><td class="yellow">2</td><td>Sentidos Expandidos</td><td>R$ 500–1000</td><td>1–2 meses</td><td>Múltiplos sensores + LED ring + speaker</td></tr>
+<tr><td class="yellow">3</td><td>Projeção + Interface</td><td>R$ 2000–4000</td><td>2–3 meses</td><td>Mini DLP + névoa + câmera</td></tr>
+<tr><td class="red">4</td><td>Dispositivo Integrado</td><td>R$ 5000–15000</td><td>4–6 meses</td><td>Jetson + carcaça + todos módulos</td></tr>
+</table>
+
+<h3>Fase 0 — Objetivo</h3>
+<p>Provar que o Gus funciona offline com IA local (Gemma 1B/4B via Ollama).</p>
+<ul>
+<li><strong>Métrica:</strong> Resposta coerente em PT-BR, com identidade Gus, sem internet</li>
+<li><strong>Modelo:</strong> Gemma3:1b (815 MB) ou Gemma3:4b (2.5 GB)</li>
+<li><strong>Latência:</strong> 3–8s no S20 (com NPU), ~29s em servidor CPU-only</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>📱 6. Galaxy S20 — Guia de Instalação</h2>
+<div class="block">
+
+<h3>Instalação Simplificada (2 passos)</h3>
+<ol>
+<li>Instalar <strong>Termux</strong> do F-Droid: <code>https://f-droid.org/packages/com.termux/</code><br>
+    ⚠️ NÃO usar a versão da Play Store (abandonada)</li>
+<li>No Termux, colar:</li>
+</ol>
+<pre>curl -sL https://raw.githubusercontent.com/Gustpbbr/Teste-ChatGPT/organizacao-autoclaw/MASE/setup.sh | bash</pre>
+
+<p>O instalador detecta RAM e escolhe o modelo ideal automaticamente.</p>
+
+<h3>Depois de instalado</h3>
+<pre>
+# Modo terminal
+bash ~/gus-local/iniciar.sh
+
+# Modo web (abrir no Chrome: http://localhost:8080)
+bash ~/gus-local/iniciar_web.sh
+</pre>
+
+<h3>Especificações do S20</h3>
+<table>
+<tr><th>Recurso</th><th>Vantagem sobre RPi 5</th></tr>
+<tr><td>8–12 GB RAM</td><td>Roda Gemma 4B com folga</td></tr>
+<tr><td>NPU dedicada</td><td>Inferência 5–10x mais rápida</td></tr>
+<tr><td>Câmeras, microfones, sensores</td><td>Já embutidos — não precisa comprar</td></tr>
+<tr><td>USB-C (DisplayPort/OTG)</td><td>Conecta Arduino, projetor, periféricos</td></tr>
+</table>
+</div>
+
+<!-- ============================================================ -->
+<h2>👥 7. Equipes Necessárias (Projeto Completo)</h2>
+<div class="block">
+
+<table>
+<tr><th>Equipe</th><th>Perfis</th><th>Custo/mês (PJ)</th></tr>
+<tr><td><strong>Software & IA</strong></td><td>Backend Sr, ML/Data, Frontend, DevOps (3–4)</td><td>R$ 50–80K</td></tr>
+<tr><td><strong>Hardware</strong></td><td>Eletrônico, Firmware, Designer (2–3)</td><td>R$ 35–60K</td></tr>
+<tr><td><strong>Pesquisa</strong></td><td>Cientista de dados part-time (1)</td><td>R$ 8–12K</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>6–8 pessoas</strong></td><td><strong>R$ 95–150K/mês</strong></td></tr>
+</table>
+
+<h3>O que IA já cobre (hoje, 2026)</h3>
+<ul>
+<li class="green">✅ Backend, ML/Data, DevOps, QA, Frontend — 80–95% coberto por IA + 1 humano revisando</li>
+<li class="yellow">⚠️ Firmware, Design — IA escreve, mas precisa testar em hardware real</li>
+<li class="red">❌ Eletrônica, Prototipagem física — precisa de engenheiro com laboratório</li>
+</ul>
+</div>
+
+<!-- ============================================================ -->
+<h2>🏛️ 8. Arqueologia Conceitual</h2>
+<div class="block">
+
+<h3>2025 (ChatGPT) — "AGI" = Conselho de 9 Especialistas</h3>
+<p>No contexto original do TER, "AGI" designava cada membro de um conselho deliberativo de especialistas:</p>
+<table>
+<tr><th>Agente</th><th>Função</th></tr>
+<tr><td>Θ (Theta)</td><td>Lógica e técnica</td></tr>
+<tr><td>Σ (Sigma)</td><td>Estrutura e coerência</td></tr>
+<tr><td>Λ (Lambda)</td><td>Prudência ética</td></tr>
+<tr><td>Ψ (Psi)</td><td>Empatia e impacto humano</td></tr>
+<tr><td>Ω (Omega)</td><td>Auditoria / meta-reflexão</td></tr>
+<tr><td>Φ (Phi)</td><td>Criatividade controlada</td></tr>
+<tr><td>Δ (Delta)</td><td>Avaliação de risco</td></tr>
+<tr><td>Ξ (Xi)</td><td>Validação empírica</td></tr>
+<tr><td>Ω-L2</td><td>Auditor do auditor</td></tr>
+</table>
+<p>Essencialmente um <strong>multi-agent system</strong> antes do termo existir no mercado.</p>
+
+<h3>Março 2026 (Claude) — "Personal AGI" = Inversão Bottom-Up</h3>
+<p>O Claude cunhou "Personal AGI" ao perceber que todos os projetos convergiam para uma arquitetura onde <strong>cada pessoa cultiva sua própria inteligência</strong>, com memória pessoal e phronesis como segurança intrínseca. "A AGI não é UMA — são bilhões de AGIs individuais."</p>
+</div>
+
+<!-- ============================================================ -->
+<h2>💻 9. Código — Fase 0</h2>
+<div class="block">
+
+<h3>Arquivos gerados (disponíveis no repo)</h3>
+<ul>
+<li><code>MASE/setup.sh</code> — Instalador automático (detecta RAM, instala Ollama, baixa modelo)</li>
+<li><code>MASE/gus_web.py</code> — Servidor web com interface de chat (dark mode, PWA)</li>
+<li><code>MASE/fase0_gus_local.py</code> — Script standalone de chat no terminal</li>
+<li><code>MASE/README-FASE0.md</code> — Guia para PC/servidor</li>
+<li><code>MASE/README-FASE0-S20.md</code> — Guia para Galaxy S20</li>
+</ul>
+
+<p><strong>Repositório:</strong> <code>Gustpbbr/Teste-ChatGPT</code> (branch <code>organizacao-autoclaw</code>)</p>
+<p><strong>Pasta:</strong> <code>MASE/</code> + <code>AutoClaw/</code></p>
+</div>
+
+<hr>
+<p style="color:#555;font-size:12px">AutoClaw — Assistente pessoal do Gustavo | Junho 2026 | 🦾</p>
+
+</body>
+</html>
