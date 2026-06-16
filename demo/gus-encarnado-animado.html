@@ -31,11 +31,12 @@
   .ring{position:absolute;inset:0;border-radius:50%;border:1px solid var(--cyan);opacity:.5}
   .ring.r2{inset:18px;border-color:var(--blue);opacity:.3;animation:spin 14s linear infinite}
   .ring.flat{inset:80px 0;border-radius:50%;border-color:var(--cyan);
-    transform:rotateX(75deg);animation:spin 8s linear infinite}
+    transform:rotateX(75deg);animation:spinx 8s linear infinite}
   @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
   @keyframes spin{to{transform:rotate(360deg)}}
   @keyframes spinx{to{transform:rotateX(75deg) rotate(360deg)}}
-  .flat{animation:spinx 8s linear infinite}
+  /* paused: congela TODAS as animações CSS */
+  body.paused *{animation-play-state:paused !important}
   /* camadas */
   .layers{display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
   .layer{background:#0d1828;border:1px solid #1d3a5f;border-radius:16px;padding:22px 26px;min-width:180px;
@@ -59,13 +60,23 @@
   .dot{position:absolute;width:8px;height:8px;border-radius:50%;background:var(--blue);opacity:.4;
     animation:float 6s ease-in-out infinite}
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
-  #bar{position:fixed;left:0;bottom:0;height:3px;background:var(--cyan);width:0;box-shadow:0 0 10px var(--cyan)}
-  #replay{position:fixed;right:14px;bottom:14px;color:var(--muted);font-size:13px;cursor:pointer;
-    border:1px solid #1d3a5f;border-radius:999px;padding:6px 14px;background:rgba(10,18,32,.7)}
+  /* barra de progresso (clicável) */
+  #barwrap{position:fixed;left:0;right:0;bottom:64px;height:6px;background:rgba(127,166,207,.15);cursor:pointer}
+  #bar{height:100%;width:0;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  /* controles */
+  #controls{position:fixed;left:0;right:0;bottom:0;height:58px;display:flex;align-items:center;
+    justify-content:center;gap:10px;background:rgba(5,8,16,.82);backdrop-filter:blur(6px);
+    border-top:1px solid #14263d}
+  .btn{display:grid;place-items:center;min-width:42px;height:38px;padding:0 12px;border:1px solid #1d3a5f;
+    border-radius:10px;background:#0d1828;color:var(--txt);font-size:16px;cursor:pointer;user-select:none}
+  .btn:hover{border-color:var(--cyan)}
+  #count{color:var(--muted);font-size:13px;min-width:78px;text-align:center}
+  #hint{position:fixed;right:14px;top:12px;color:var(--muted);font-size:12px;opacity:.7}
 </style>
 </head>
 <body>
 <div class="dots" id="dots"></div>
+<div id="hint">espaço = pausar · ← → = cena</div>
 
 <div id="stage">
   <!-- 0 -->
@@ -129,8 +140,14 @@
   </section>
 </div>
 
-<div id="bar"></div>
-<div id="replay" onclick="start()">↻ repetir</div>
+<div id="barwrap"><div id="bar"></div></div>
+<div id="controls">
+  <div class="btn" id="prev" title="cena anterior (←)">⏮</div>
+  <div class="btn" id="play" title="pausar/continuar (espaço)">⏸</div>
+  <div class="btn" id="next" title="próxima cena (→)">⏭</div>
+  <div id="count">1 / 6</div>
+  <div class="btn" id="restart" title="reiniciar">↻</div>
+</div>
 
 <script>
   // fundo: nós flutuando
@@ -147,32 +164,68 @@
 
   const scenes=[...document.querySelectorAll('.scene')];
   const dur=[4000,4500,4000,5000,5000,4500]; // ms por cena
-  const total=dur.reduce((a,b)=>a+b,0);
-  let timers=[];
+  const bar=document.getElementById('bar');
+  const count=document.getElementById('count');
+  const playBtn=document.getElementById('play');
 
-  function start(){
-    timers.forEach(clearTimeout);timers=[];
+  let idx=0, paused=false, sceneStart=performance.now(), acumulado=0;
+
+  function mostrar(i){
+    idx=(i+scenes.length)%scenes.length;
     scenes.forEach(s=>s.classList.remove('active'));
-    let t=0;
-    scenes.forEach((s,i)=>{
-      timers.push(setTimeout(()=>{
-        scenes.forEach(x=>x.classList.remove('active'));
-        s.classList.add('active');
-        // re-dispara as animações internas
-        s.querySelectorAll('.layer,.pill,.ar,.blk').forEach(el=>{
-          el.style.animation='none';el.offsetHeight;el.style.animation='';
-        });
-      },t));
-      t+=dur[i];
+    const s=scenes[idx];
+    s.classList.add('active');
+    // re-dispara as animações internas da cena
+    s.querySelectorAll('.layer,.pill,.ar,.blk').forEach(el=>{
+      el.style.animation='none';el.offsetHeight;el.style.animation='';
     });
-    // barra de progresso
-    const bar=document.getElementById('bar');
-    bar.style.transition='none';bar.style.width='0';bar.offsetHeight;
-    bar.style.transition='width '+total+'ms linear';bar.style.width='100%';
-    // loop
-    timers.push(setTimeout(start,total));
+    sceneStart=performance.now();
+    acumulado=0;
+    bar.style.width='0';
+    count.textContent=(idx+1)+' / '+scenes.length;
   }
-  start();
+
+  function loop(now){
+    if(!paused){
+      const elapsed=acumulado+(now-sceneStart);
+      const d=dur[idx];
+      bar.style.width=Math.min(elapsed/d,1)*100+'%';
+      if(elapsed>=d) mostrar(idx+1);
+    }
+    requestAnimationFrame(loop);
+  }
+
+  function setPause(p){
+    if(p===paused) return;
+    if(p){ acumulado+=performance.now()-sceneStart; }
+    else { sceneStart=performance.now(); }
+    paused=p;
+    document.body.classList.toggle('paused',p);
+    playBtn.textContent=p?'▶':'⏸';
+  }
+
+  document.getElementById('play').onclick=()=>setPause(!paused);
+  document.getElementById('prev').onclick=()=>{ mostrar(idx-1); if(paused) setPause(false); };
+  document.getElementById('next').onclick=()=>{ mostrar(idx+1); if(paused) setPause(false); };
+  document.getElementById('restart').onclick=()=>{ mostrar(0); setPause(false); };
+
+  // clicar na barra pula proporcional dentro da cena
+  document.getElementById('barwrap').onclick=(e)=>{
+    const frac=e.clientX/window.innerWidth;
+    acumulado=frac*dur[idx];
+    sceneStart=performance.now();
+    bar.style.width=(frac*100)+'%';
+  };
+
+  // teclado
+  addEventListener('keydown',(e)=>{
+    if(e.code==='Space'){ e.preventDefault(); setPause(!paused); }
+    else if(e.code==='ArrowLeft'){ mostrar(idx-1); }
+    else if(e.code==='ArrowRight'){ mostrar(idx+1); }
+  });
+
+  mostrar(0);
+  requestAnimationFrame(loop);
 </script>
 </body>
 </html>
