@@ -72,8 +72,11 @@ especificação. Pergunte à vontade: *"o que é real aqui?"*, *"qual a parte pu
 
 ## ⚠️ Checklist ANTES de enviar (bloqueante)
 
-- [ ] **PII scrub:** remover CPF, dados clínicos/pacientes, perfil pessoal, e-mails privados
-      de todo material que sair. (Visto no corpus: CPF e referências clínicas — **não enviar sem limpar**.)
+- [x] **PII scrub da pasta `Entregavel/`:** ✅ varredura feita (2026-06-16) — sem CPF, e-mails,
+      telefones ou dados de terceiros. Só o nome do autor (atribuição). **Esta pasta está limpa.**
+- [ ] **PII scrub do material-fonte** (se for incluí-lo): os repos/dumps brutos e o Phronesis-Bench
+      contêm dados pessoais (CPF, referências clínicas, perfil). **Não incluir sem limpar.**
+      Recomendação: publicar **só `Entregavel/`** + o Phronesis-Bench já revisado.
 - [ ] Confirmar a licença no `LICENSE.md` (e decidir patente: manter ou abrir via Apache).
 - [ ] Tornar público só o que for revisado (de preferência, **só a pasta `Entregavel/` + o
       Phronesis-Bench limpo**, não os dumps brutos de 100 MB).
