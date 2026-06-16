@@ -1,53 +1,65 @@
-# Gus Voice — Assistente por Voz (Fase A)
+# Gus Voice + Vision — Fase A + B
 
-> Wake word → grava → transcreve → Ollama → TTS. 100% offline.
+> Wake word → voz OU visão → responde. 100% offline no S20.
 
-## Instalação (S20 + Termux)
+## Instalação
 
 ```bash
-# 1. Instalar apps (F-Droid)
-#    - Termux
-#    - Termux:API (para TTS e microfone)
-
-# 2. No Termux:
+# Termux + Termux:API (F-Droid)
 pkg update && pkg upgrade
 pkg install python python-pip termux-api
 
-# 3. Dependências Python
-pip install requests numpy sounddevice
-pip install openai-whisper    # Whisper tiny (~150 MB)
+# Dependências
+pip install requests numpy sounddevice pillow
+pip install openai-whisper
 
-# 4. Ollama (já instalado da Fase 0)
-ollama serve &
+# Ollama
 ollama pull gemma3:4b
 ```
+
+## Arquivos
+
+| Arquivo | Função |
+|---------|--------|
+| `gus_voice.py` | Fase A: voz → LLM → TTS |
+| `gus_vision.py` | Fase B: câmera → descrição / OCR |
+| `gus_full.py` | Integrado: voz + visão |
 
 ## Uso
 
 ```bash
+# Apenas voz
 python3 gus_voice.py
-# → Fala "Gus" (ou pressiona Enter no modo manual)
-# → Faça sua pergunta
-# → Gus responde em voz
+
+# Voz + visão integrados
+python3 gus_full.py
 ```
 
-## Modos
+## Comandos suportados
 
-| Componente | Opção A (completo) | Opção B (fallback) |
-|-----------|-------------------|-------------------|
-| Wake word | Porcupine "Gus" | Pressionar Enter |
-| STT | Whisper tiny | Ollama (transcrição) |
-| LLM | Gemma 4B | — |
-| TTS | Android nativo | ❌ (só texto) |
+| Você diz | Gus faz |
+|----------|---------|
+| "Gus, o que você vê?" | Tira foto e descreve a cena |
+| "Gus, o que está escrito?" | OCR — extrai texto da câmera |
+| "Gus, analise o vídeo" | 5 frames em 5s, descreve cada |
+| Qualquer outra frase | Chat normal com Ollama |
 
-## Arquitetura
+## Arquitetura Completa
 
 ```
-[Porcupine] ──wake──→ [Gravação 5s] ──bytes──→ [Whisper tiny]
-                                                      ↓
-[Android TTS] ←──texto── [Ollama Gemma] ←──texto── [Transcrição]
+[Wake Word "Gus"]
+       ↓
+[Grava áudio 5s] ──→ [Whisper tiny] ──→ texto
+       ↓                                      ↓
+[Detecta intenção]                    [Comando de câmera?]
+       ↓                                      ↓
+[Chat normal]                      [Captura foto]
+       ↓                                      ↓
+[Ollama Gemma] ←────────────────── [Ollama Vision]
+       ↓
+[Android TTS] ──→ resposta em voz
 ```
 
-## Próximo: Fase B
+## Próximo: Fase C
 
-Adiciona: câmera → captura frame → classificação → "Gus, o que você vê?"
+Adiciona: screen capture → "Gus, o que tá na tela?"
