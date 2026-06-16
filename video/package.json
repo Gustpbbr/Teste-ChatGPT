@@ -1,0 +1,21 @@
+{
+  "name": "gus-encarnado-video",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Explainer animado do Gus Encarnado (vídeo-código com Remotion)",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render GusEncarnado out/gus-encarnado.mp4",
+    "still": "remotion still GusEncarnado out/frame.png --frame=60"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.477",
+    "remotion": "4.0.477",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.1",
+    "typescript": "^5.5.0"
+  }
+}
