@@ -68,10 +68,14 @@ DECK_JS = """
   var source=document.getElementById('source');
   var deck=document.getElementById('deck');
 
-  // 1) achata os blocos de conteúdo (filhos de .wrap, ignorando containers)
-  var crus=[].slice.call(source.querySelectorAll('.wrap > *'));
-  var blocos=crus.filter(function(el){
-    return !el.classList.contains('parte') && el.tagName!=='SECTION' && !el.querySelector('.wrap');
+  // 1) achata os blocos de conteúdo: pega blocos "folha" em ordem de documento
+  //    (robusto ao aninhamento bagunçado da aula). Remove os que estão dentro
+  //    de outro selecionado (ex.: o <p> dentro de um .box, a <table> num .tbl).
+  var sel='h1,h2,h3,p,ul,ol,table,.box,.tbl,.popup-q,.desafio,.citacao,'+
+          '.figura,.eyebrow,.subtit,.nota,.todo-img,.pensamento,blockquote,.numfoco';
+  var todos=[].slice.call(source.querySelectorAll(sel));
+  var blocos=todos.filter(function(el){
+    return !todos.some(function(o){return o!==el && o.contains(el);});
   });
   if(!blocos.length){ blocos=[].slice.call(source.children); }
 
