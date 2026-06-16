@@ -51,10 +51,13 @@ pesquisador abriu este repositório e tem ~20 minutos. Seu trabalho é dar uma v
 
 ## Como navegar
 
-- Visão: `01-visao-geral.md` · Pitch: `02-one-pager.md`
-- Por projeto: `projetos/<nome>/briefing.md` (resumo honesto de cada um)
-- A linha de memória (TEAR→TER→Gus) e o detalhe técnico vivem nos repositórios-fonte
-  linkados em cada briefing.
+- Visão: `01-visao-geral.md` · Pitch: `02-one-pager.md` · Ecossistema/conexões: `03-mapa-do-ecossistema.md`
+- **Por projeto:** `projetos/<nome>/briefing.md` (1 página) e **`projetos/<nome>/deep-dive.md`**
+  (técnico, 13 seções, com citações verbatim). Projetos: `phronesis-bench`, `mge`, `cex-cep`,
+  `gus`, `memoria-tear-ter`, `ter-kai`, `acee-mase`, `axon-mgx`.
+- **Glossário:** `GLOSSARIO-MESTRE.md` (toda sigla) · **O que roda vs. spec:** `MATRIZ-DE-MATURIDADE.md`.
+- Use os deep-dives para responder perguntas técnicas — eles já marcam real vs. spec e o que é
+  `NÃO ENCONTRADO`. Se o pesquisador quer profundidade num projeto, abra o `deep-dive.md` dele.
 
 ## O que NUNCA fazer
 

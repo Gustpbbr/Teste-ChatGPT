@@ -37,25 +37,35 @@ Se em algum ponto soar como hype, confie no ceticismo — e pergunte à IA-guia 
 
 ---
 
-## 🗂️ Estrutura deste dossiê (em construção)
+## 🗂️ Estrutura deste dossiê
 
 ```
 Entregavel/
-├── 00-LEIA-PRIMEIRO.md      ← você está aqui
-├── 01-visao-geral.md        ← o panorama (1 organismo, 10 ângulos)
-├── 02-one-pager.md          ← pitch de 1 página para o pesquisador  [a fazer]
-├── CLAUDE.md                ← instruções para a IA-guia do tour     [a fazer]
-├── projetos/                ← 1 briefing honesto por projeto         [a fazer]
-│   ├── phronesis-bench/     ← o artefato funcional (âncora de credibilidade)
-│   ├── memoria-tear-ter/    ← a linha de memória (TEAR → TER → Gus)
-│   ├── acee-mase/           ← percepção afetiva embarcada
-│   ├── ter-kai/             ← governança prudencial (middleware)
-│   └── gus/                 ← a síntese (organismo de 3 camadas)
-└── alvos-pesquisadores.md   ← quem contatar e por quê               [a fazer]
+├── 00-LEIA-PRIMEIRO.md       ← você está aqui
+├── 01-visao-geral.md         ← o panorama (1 organismo, 10 ângulos)
+├── 02-one-pager.md           ← pitch de 1 página + template de e-mail
+├── 03-mapa-do-ecossistema.md ← todos os projetos e como formam o Gus
+├── CLAUDE.md                 ← instruções para a IA-guia do tour de 20 min
+├── LICENSE.md                ← licença aberta (MIT código / CC BY docs)
+├── GLOSSARIO-MESTRE.md       ← todas as siglas e termos
+├── MATRIZ-DE-MATURIDADE.md   ← o que roda vs. spec, por projeto/componente
+├── alvos-pesquisadores.md    ← quem contatar e por quê
+└── projetos/                 ← cada um: briefing.md (1 pág) + deep-dive.md (técnico)
+    ├── phronesis-bench/      ← 🟢 benchmark + RESULTADOS (âncora)
+    ├── mge/                  ← 🟢 motor de geração estruturada (funcional)
+    ├── cex-cep/              ← 🟢/🟡 comitê de especialistas (deliberação)
+    ├── gus/                  ← 🟡 a síntese (organismo de 3 camadas)
+    ├── memoria-tear-ter/     ← 📄 a linha de memória (TEAR → TER → Gus)
+    ├── ter-kai/              ← 📄 governança prudencial (middleware)
+    ├── acee-mase/            ← 📄 percepção afetiva embarcada
+    └── axon-mgx/             ← 📄 automação contextual + orquestração multiagente
 ```
 
-> ⚠️ **Antes de enviar a qualquer pessoa:** passar tudo por um **scan de PII** (este corpo
-> de trabalho contém dados pessoais/clínicos do autor). Ver checklist no fim do `02-one-pager.md`.
+> Para o quadro completo "o que roda vs. o que é spec", ver [`MATRIZ-DE-MATURIDADE.md`](MATRIZ-DE-MATURIDADE.md).
+
+> ⚠️ **Antes de enviar a qualquer pessoa:** a pasta `Entregavel/` já passou por scan de PII
+> (limpa). Mas o **material-fonte** (repos/dumps) contém dados pessoais/clínicos — não incluir
+> sem limpar. Ver checklist no `02-one-pager.md`.
 
 ---
 
