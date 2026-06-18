@@ -11,11 +11,6 @@ desde que **mantenha o crédito ao autor**.
 
 **Autor / detentor dos direitos:** Gustavo Pratti de Barros (2025–2026).
 
-> Nota: estas licenças cobrem direito autoral e uso. Elas **não concedem explicitamente
-> direitos de patente**. O autor mantém o registro de anterioridade do TEAR (Biblioteca
-> Nacional) e o rascunho de patente do TER KAI. Para abrir também direitos de patente, a
-> via apropriada seria a Apache License 2.0.
-
 ---
 
 ## MIT License (para o código)

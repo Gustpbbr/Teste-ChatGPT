@@ -77,8 +77,3 @@ Este material é oferecido sob **licença aberta com atribuição** — ver [`LI
 - **Documentos/conceitos:** **CC BY 4.0** — use e adapte; cite o autor.
 - **Intenção do autor:** *ceder o trabalho para que alguém leve adiante* — colaboração é
   bem-vinda, mas não exigida. O objetivo é que a ideia viva, não controlá-la.
-
-> ⚠️ **Nota sobre IP registrado:** o TEAR tem registro de anterioridade (Biblioteca Nacional)
-> e o TER KAI tem rascunho de patente. As licenças acima cobrem **direito autoral/uso** e
-> **não concedem explicitamente direitos de patente**. Se o autor quiser também abrir patentes,
-> a via seria Apache 2.0 — decisão consciente a tomar antes do envio.
