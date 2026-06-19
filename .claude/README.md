@@ -12,6 +12,18 @@ Peças reutilizáveis trazidas (e adaptadas) da **Biblioteca-Claude-code**
 | **Slash command** | `commands/commit.md` | `/commit` — monta um commit a partir do diff atual (PT-BR, imperativo). |
 | **Subagent revisor** | `agents/revisor-de-codigo.md` | Revisa o diff com filtro de confiança ≥75, checando as **7 regras de ouro** do projeto (schema gus-18, PII scan, rota-local, retry backoff, testes). |
 
+## Pegadinha do hook de segurança (falso-positivo)
+
+O hook faz **scan por substring**: se um comando *contiver* um dos padrões em
+**qualquer posição** — inclusive dentro do texto de uma mensagem de commit ou de um
+`echo` — ele bloqueia (exit 2). Ex.: um `git commit` cuja mensagem *cite* o comando de
+apagar raiz será barrado, mesmo sendo inofensivo.
+
+Isso é **proposital**: num guard-rail de segurança, o modo de falha seguro é o
+falso-positivo (barrar demais), nunca o falso-negativo (deixar passar um `sudo <apagar>
+/`). Anotar/contornar é simples: reescreva a mensagem sem o literal. **Mantido estrito de
+propósito.**
+
 ## Notas
 
 - `settings.local.json` (overrides pessoais) deve ir no `.gitignore` se você criar um.
